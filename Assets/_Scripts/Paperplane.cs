@@ -12,6 +12,8 @@ public class Paperplane : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		// make the plane a particle system
 		particlesSystem = gameObject.GetComponent<ParticleSystem>();
 		particles = new ParticleSystem.Particle[1];
 		SetupParticleSystem();
@@ -44,4 +46,15 @@ public class Paperplane : MonoBehaviour {
 		particles[0].position = Vector3.zero;
 		particlesSystem.SetParticles(particles, 1);
 	}
+
+	// use case: round fail
+	// for use with detecting collision of walls.
+	void OnCollisionEnter(Collision col) {
+		// destroy the plane anytime it collides with a wall
+		if(col.gameObject.tag == "wall") {
+            FlyingPaper fpScript = Camera.main.GetComponent<FlyingPaper>();
+            // call PlaneDestroyed() in the FlyingPaper script
+            fpScript.PlaneDestroyed();
+	}
+}
 }

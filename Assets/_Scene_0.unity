@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 237840986}
   - component: {fileID: 237840985}
   - component: {fileID: 237840984}
+  - component: {fileID: 237840989}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -293,6 +294,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237840989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237840983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 5
+  planePrefab: {fileID: 0}
+  __________________: 0
+  score: 0
 --- !u!1 &468604838
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +323,7 @@ GameObject:
   - component: {fileID: 468604840}
   m_Layer: 0
   m_Name: Frame_bottom
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +452,7 @@ GameObject:
   - component: {fileID: 720329198}
   m_Layer: 0
   m_Name: Frame_right
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +570,7 @@ GameObject:
   - component: {fileID: 978288472}
   m_Layer: 0
   m_Name: Frame_top
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,6 +682,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 65172299093839292, guid: 2b9c0db40cf79436bb2ec35d34988155,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65704421846140100, guid: 2b9c0db40cf79436bb2ec35d34988155,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772831421520528, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_Name
+      value: Frame_bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772831421520528, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184608991433490, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588250199066086, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054585741061672, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
   m_IsPrefabParent: 0
@@ -683,7 +729,7 @@ GameObject:
   - component: {fileID: 1116813544}
   m_Layer: 0
   m_Name: Frame_left
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
