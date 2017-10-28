@@ -55,6 +55,16 @@ public class Paperplane : MonoBehaviour {
             FlyingPaper fpScript = Camera.main.GetComponent<FlyingPaper>();
             // call PlaneDestroyed() in the FlyingPaper script
             fpScript.PlaneDestroyed();
-	}
-}
+	    }
+    }
+
+    // implementing coin pick up
+    // calls a script in the FlyingPaper class
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("coin")) {
+            FlyingPaper fpScript = Camera.main.GetComponent<FlyingPaper>();
+            // call CoinPickup() in the FlyingPaper script
+            fpScript.CoinPickup(other);
+        }
+    }
 }

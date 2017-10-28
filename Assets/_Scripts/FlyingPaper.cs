@@ -1,15 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class FlyingPaper : MonoBehaviour {
-    //vars set in unity
-    public int lives; 
+    // vars set in unity
+    // todo should lives be public or private?
+    public int lives;
+    public Text scoreText;
 	public GameObject planePrefab;
     public bool __________________;
 
-    public int score;
+    private int score;
+
+    void Start() {
+        scoreText.text = "Score: 0";
+    }
 
 	// this gets called when the plane hits a wall
 	public void PlaneDestroyed() {
@@ -22,9 +27,14 @@ public class FlyingPaper : MonoBehaviour {
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);
 		} else {
-			// todo: reinstantiate paper plane
 			GameObject plane = Instantiate(planePrefab) as GameObject;
 		}
-
 	}
+
+    // destroy the coin and increment the score
+    public void CoinPickup(Collider coin) {
+        coin.gameObject.SetActive(false);
+        this.score++;
+        scoreText.text = "Score: " + score.ToString();
+    }
 }

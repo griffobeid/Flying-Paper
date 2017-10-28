@@ -306,7 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 5
-  planePrefab: {fileID: 0}
+  planePrefab: {fileID: 1768457331922584, guid: 5b1f6ea708c474cdc85d00343a6fe38b,
+    type: 2}
   __________________: 0
   score: 0
 --- !u!1 &468604838
