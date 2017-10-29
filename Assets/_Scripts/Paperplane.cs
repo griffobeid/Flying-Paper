@@ -8,10 +8,11 @@ public class Paperplane : MonoBehaviour {
 	ParticleSystem particlesSystem;
 	ParticleSystem.Particle[] particles;
 	Rigidbody myRigidbody;
-
+    private FlyingPaper fpScript;
 
 	// Use this for initialization
 	void Start () {
+        fpScript = Camera.main.GetComponent<FlyingPaper>();
 
 		// make the plane a particle system
 		particlesSystem = gameObject.GetComponent<ParticleSystem>();
@@ -51,20 +52,21 @@ public class Paperplane : MonoBehaviour {
 	// for use with detecting collision of walls.
 	void OnCollisionEnter(Collision col) {
 		// destroy the plane anytime it collides with a wall
-		if(col.gameObject.tag == "wall") {
-            FlyingPaper fpScript = Camera.main.GetComponent<FlyingPaper>();
+		if(col.gameObject.tag == "Wall") {
             // call PlaneDestroyed() in the FlyingPaper script
             fpScript.PlaneDestroyed();
 	    }
     }
 
-    // implementing coin pick up
+    // implementing coin pick up and finish line
     // calls a script in the FlyingPaper class
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("coin")) {
-            FlyingPaper fpScript = Camera.main.GetComponent<FlyingPaper>();
+        if (other.gameObject.CompareTag("Coin")) {
             // call CoinPickup() in the FlyingPaper script
             fpScript.CoinPickup(other);
+        } else if (other.gameObject.CompareTag("Finish")) {
+            // call FinishLine() in the FlyingPaper script
+            fpScript.FinishLine();
         }
     }
 }

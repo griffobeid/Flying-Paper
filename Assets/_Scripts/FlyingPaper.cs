@@ -37,4 +37,9 @@ public class FlyingPaper : MonoBehaviour {
         this.score++;
         scoreText.text = "Score: " + score.ToString();
     }
+
+    // called once the finish line is triggered
+    public void FinishLine() {
+        // todo: set the final score here and then load the next scene
+    }
 }
