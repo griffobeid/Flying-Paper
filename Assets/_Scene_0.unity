@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 468604840}
   m_Layer: 0
   m_Name: Frame_bottom
-  m_TagString: wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,7 +432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4919328362223476, guid: 5b1f6ea708c474cdc85d00343a6fe38b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b1f6ea708c474cdc85d00343a6fe38b, type: 2}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 720329198}
   m_Layer: 0
   m_Name: Frame_right
-  m_TagString: wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 978288472}
   m_Layer: 0
   m_Name: Frame_top
-  m_TagString: wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -728,19 +728,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1772831421520528, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
       propertyPath: m_TagString
-      value: wall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1184608991433490, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
       propertyPath: m_TagString
-      value: wall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1588250199066086, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
       propertyPath: m_TagString
-      value: wall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1054585741061672, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
       propertyPath: m_TagString
-      value: wall
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944427681192586, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b9c0db40cf79436bb2ec35d34988155, type: 2}
@@ -759,7 +763,7 @@ GameObject:
   - component: {fileID: 1116813544}
   m_Layer: 0
   m_Name: Frame_left
-  m_TagString: wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -998,7 +1002,7 @@ Transform:
   - {fileID: 720329197}
   - {fileID: 1116813543}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796389558
 GameObject:
