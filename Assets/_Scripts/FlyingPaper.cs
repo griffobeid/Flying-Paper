@@ -36,7 +36,7 @@ public class FlyingPaper : MonoBehaviour {
 			GameObject plane = Instantiate(planePrefab) as GameObject;
             GameObject newButton = Instantiate(flyButton) as GameObject;
             newButton.transform.SetParent(canvas.transform, false);
-            newButton.GetComponent<Button>().onClick.AddListener(planePrefab.GetComponent<Paperplane>().BeginFlight);
+            newButton.GetComponent<Button>().onClick.AddListener(plane.GetComponent<Paperplane>().BeginFlight);
 		}
 
 
@@ -53,5 +53,6 @@ public class FlyingPaper : MonoBehaviour {
     // called once the finish line is triggered
     public void FinishLine() {
         // todo: set the final score here and then load the next scene
+        Debug.Log("You win!");
     }
 }

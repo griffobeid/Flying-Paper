@@ -13,7 +13,8 @@ public class Paperplane : MonoBehaviour
     ParticleSystem particlesSystem;
     ParticleSystem.Particle[] particles;
     Rigidbody myRigidbody;
-    private FlyingPaper fpScript;
+    FlyingPaper fpScript;
+    GameObject plane;
 
     // Use this for initialization
     void Awake()
@@ -21,13 +22,14 @@ public class Paperplane : MonoBehaviour
         fpScript = Camera.main.GetComponent<FlyingPaper>();
 
         // make the plane a particle system
-        particlesSystem = gameObject.GetComponent<ParticleSystem>();
+        particlesSystem = this.GetComponent<ParticleSystem>();
         particles = new ParticleSystem.Particle[1];
         SetupParticleSystem();
-        myRigidbody = gameObject.GetComponent<Rigidbody>();
+        myRigidbody = this.GetComponent<Rigidbody>();
 
-        Debug.Log("awake function");
+
         myRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        Debug.Log(myRigidbody.constraints);
     }
 
     void FixedUpdate()
