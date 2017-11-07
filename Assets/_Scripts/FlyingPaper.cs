@@ -11,16 +11,12 @@ public class FlyingPaper : MonoBehaviour {
 	public GameObject planePrefab;
     public GameObject flyButton;
     public GameObject canvas;
+
     public bool __________________;
 
+    // private vars
     int score;
-    Paperplane ppScript;
-    UnityAction fly;
 
-    void Start() {
-        fly = new UnityAction(ppScript.BeginFlight);
-        
-    }
 
 	// this gets called when the plane hits a wall
 	public void PlaneDestroyed() {

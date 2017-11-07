@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d7d9484695741089a90e570350bc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialThrust: 10
   _______________: 0
   obj: {fileID: 0}
 --- !u!199 &235248822
@@ -257,7 +258,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 763533170
+  randomSeed: 1585710202
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4136,6 +4137,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 182947510125156656, guid: 9003386d245e8472a9227f0aef77d2b4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9003386d245e8472a9227f0aef77d2b4, type: 2}
   m_IsPrefabParent: 0
@@ -4215,7 +4221,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1162770481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.64, y: -2.5, z: 0}
+  m_LocalPosition: {x: 5.64, y: 1.21, z: 0}
   m_LocalScale: {x: 1, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

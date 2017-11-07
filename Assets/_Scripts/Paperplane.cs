@@ -4,6 +4,7 @@
 public class Paperplane : MonoBehaviour
 {
     // vars set in unity
+    public float initialThrust;
 
     public bool _______________;
 
@@ -29,7 +30,6 @@ public class Paperplane : MonoBehaviour
 
 
         myRigidbody.constraints = RigidbodyConstraints.FreezeAll;
-        Debug.Log(myRigidbody.constraints);
     }
 
     void FixedUpdate()
@@ -97,5 +97,6 @@ public class Paperplane : MonoBehaviour
 
         myRigidbody.constraints = RigidbodyConstraints.None;
         myRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        myRigidbody.AddForce(transform.forward * initialThrust, ForceMode.Impulse);
     }
 }
