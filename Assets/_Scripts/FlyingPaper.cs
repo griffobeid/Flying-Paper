@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class FlyingPaper : MonoBehaviour {
