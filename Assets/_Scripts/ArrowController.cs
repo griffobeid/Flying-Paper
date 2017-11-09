@@ -13,8 +13,16 @@ public class ArrowController : MonoBehaviour
 
     }
 
-    // Hooked up to the arrow 
-    void OnMouseDown() {
-        Debug.Log("Arrow clicked");
+    void OnMouseDrag() {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit)) {
+            Transform objecthit = hit.transform;
+            if (hit.transform.gameObject.tag == "Arrow") {
+                Debug.Log(hit.point);
+                Debug.Log(objecthit);
+
+            }
+        }
     }
+  
 }
