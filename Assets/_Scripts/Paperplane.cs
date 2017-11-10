@@ -92,7 +92,8 @@ public class Paperplane : MonoBehaviour
     // this method is called when the fly button is clicked
     // it gives the plane an initial velocity that diminishes over time
     // also will hide the fly button in here
-    public void BeginFlight() { 
+    public void BeginFlight() {
+        Debug.Log("Inside begin flight");   
         Destroy(GameObject.FindGameObjectWithTag("GameController"));
 
         myRigidbody.constraints = RigidbodyConstraints.None;
