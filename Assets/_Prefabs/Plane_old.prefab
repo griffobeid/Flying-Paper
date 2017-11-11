@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 199297611146801950}
   - component: {fileID: 114052036758628246}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Plane_old
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d7d9484695741089a90e570350bc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialThrust: 0
+  _______________: 0
   obj: {fileID: 0}
 --- !u!198 &198688161276857580
 ParticleSystem:
