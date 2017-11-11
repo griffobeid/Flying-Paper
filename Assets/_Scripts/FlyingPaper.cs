@@ -8,6 +8,14 @@ public class FlyingPaper : MonoBehaviour {
     public int lives;
     public Text scoreText;
 	public GameObject planePrefab;
+    public AudioClip coinSound;
+    public float soundClipVol;
+    public AudioClip failSound;
+    public AudioClip throwSound;
+    public AudioClip ventSound;
+    public AudioClip explosionSound;
+    public AudioClip winSound;
+    private AudioSource source;
     public GameObject flyButton;
     public GameObject canvas;
 
@@ -15,10 +23,15 @@ public class FlyingPaper : MonoBehaviour {
 
     // private vars
     int score;
-
-
-	// this gets called when the plane hits a wall
-	public void PlaneDestroyed() {
+    //used to initialize audiosource
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+    // this gets called when the plane hits a wall
+    public void PlaneDestroyed() {
+        source.PlayOneShot(explosionSound, soundClipVol);
+        source.PlayOneShot(failSound, soundClipVol);//play fail sound effect
         Destroy(GameObject.FindGameObjectWithTag("Player"));
 		lives--;
 
@@ -40,6 +53,7 @@ public class FlyingPaper : MonoBehaviour {
 
     // destroy the coin and increment the score
     public void CoinPickup(Collider coin) {
+        source.PlayOneShot(coinSound, soundClipVol);//play coin sound effect
         coin.gameObject.SetActive(false);
         this.score++;
         scoreText.text = "Score: " + score.ToString();
@@ -47,6 +61,7 @@ public class FlyingPaper : MonoBehaviour {
 
     // called once the finish line is triggered
     public void FinishLine() {
+        source.PlayOneShot(winSound, soundClipVol);//play win sound
         // todo: set the final score here and then load the next scene
         Debug.Log("You win!");
     }
