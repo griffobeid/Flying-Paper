@@ -4,7 +4,7 @@
 public class Paperplane : MonoBehaviour
 {
     // vars set in unity
-    public float initialThrust;
+
 
     public bool _______________;
 
@@ -16,6 +16,7 @@ public class Paperplane : MonoBehaviour
     Rigidbody myRigidbody;
     FlyingPaper fpScript;
     GameObject plane;
+    float initialThrust;
 
     // Use this for initialization
     void Awake()
@@ -24,7 +25,7 @@ public class Paperplane : MonoBehaviour
         GameObject start = GameObject.FindGameObjectWithTag("Start");
         gameObject.transform.position = new Vector3(start.transform.position.x + 2, start.transform.position.y - 2, 0);
 
-
+        initialThrust = 10f;
 
         fpScript = Camera.main.GetComponent<FlyingPaper>();
 
@@ -95,11 +96,22 @@ public class Paperplane : MonoBehaviour
         }
     }
 
+    // sets the initial force added to the plane 
+    // based on the length of the arrow
+    public void setThrust(float v) {
+        initialThrust = initialThrust + v;
+        Debug.Log(initialThrust);
+    }
+
+
     // this method is called when the fly button is clicked
     // it gives the plane an initial velocity that diminishes over time
     // also will hide the fly button in here
-    public void BeginFlight() {
+    public void BeginFlight()
+    {
         Destroy(GameObject.FindGameObjectWithTag("GameController"));
+        Destroy(GameObject.FindGameObjectWithTag("Arrow"));
+        Destroy(GameObject.FindGameObjectWithTag("ArrowContainer"));
 
         myRigidbody.constraints = RigidbodyConstraints.None;
         myRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
