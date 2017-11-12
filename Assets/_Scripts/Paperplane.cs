@@ -20,6 +20,12 @@ public class Paperplane : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        // position the plane at the start point
+        GameObject start = GameObject.FindGameObjectWithTag("Start");
+        gameObject.transform.position = new Vector3(start.transform.position.x + 2, start.transform.position.y - 2, 0);
+
+
+
         fpScript = Camera.main.GetComponent<FlyingPaper>();
 
         // make the plane a particle system
@@ -93,7 +99,6 @@ public class Paperplane : MonoBehaviour
     // it gives the plane an initial velocity that diminishes over time
     // also will hide the fly button in here
     public void BeginFlight() {
-        Debug.Log("Inside begin flight");   
         Destroy(GameObject.FindGameObjectWithTag("GameController"));
 
         myRigidbody.constraints = RigidbodyConstraints.None;
