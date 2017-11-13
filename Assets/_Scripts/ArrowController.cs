@@ -7,7 +7,7 @@ public class ArrowController : MonoBehaviour
 
     // this is the game object that the arrow will be attached to.
     public GameObject GO;
-    public float speed = 5.0f; 
+    public float speed = 5.0f;
 
     // private vars
     Ray ray;

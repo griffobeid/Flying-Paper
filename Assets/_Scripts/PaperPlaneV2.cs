@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 //This script is written to remove the use of Unity's particle system (for now)
 
-public class PaperPlaneV2 : MonoBehaviour {
+public class PaperPlaneV2 : MonoBehaviour
+{
 
-    // we are making the plane a particle system
-    // so that the windzone component can affect it
     public Transform obj;
+    public Canvas canvas;
     Rigidbody rb;
     FlyingPaper fpScript;
-    GameObject plane;
+    GameObject plane, path;
+    bool finished;
     public float initialThrust, initialTorque, forceX, forceY;
     public Slider rotValSlider, powerValSlider;
-    float rotVal, powerVal;
 
 
     // Use this for initialization
@@ -31,13 +31,10 @@ public class PaperPlaneV2 : MonoBehaviour {
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
 
-        rotVal = rotValSlider.value;
-        powerVal = powerValSlider.value;
-
-        //Debug.Log(rotVal);
-
         plane = GameObject.FindGameObjectWithTag("PlaneHolder");
+        path = GameObject.FindGameObjectWithTag("Path");
 
+        finished = false;
     }
 
     // use case: round fail
@@ -49,6 +46,11 @@ public class PaperPlaneV2 : MonoBehaviour {
         {
             // call PlaneDestroyed() in the FlyingPaper script
             //fpScript.PlaneDestroyed();
+        }
+        else if (col.gameObject.tag == "Floor" && !finished)
+        {
+            new WaitForSeconds(2);
+            fpScript.Reset();
         }
     }
 
@@ -63,6 +65,9 @@ public class PaperPlaneV2 : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
+            finished = true;
+            // turn the UI back on
+            canvas.GetComponent<Canvas>().enabled = true;
             // call FinishLine() in the FlyingPaper script
             fpScript.FinishLine();
         }
@@ -79,7 +84,7 @@ public class PaperPlaneV2 : MonoBehaviour {
 
         //keep forceY at 0
         float forceAdded = (initialThrust + forceX + forceY);
-
+        Debug.Log(forceAdded);
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
         //rb.AddForce(initialThrust * forceX, initialThrust * forceY, 0, ForceMode.Impulse);
@@ -93,17 +98,17 @@ public class PaperPlaneV2 : MonoBehaviour {
         //Debug.Log("forceX: " + forceX);
         //Debug.Log("Final Force: " + forceAdded);
 
-        //Turn off buttons
-        GameObject.FindGameObjectWithTag("PlaneRotationSlider").SetActive(false);
-        GameObject.FindGameObjectWithTag("PlaneThrowPowerSlider").SetActive(false);
-        GameObject.FindGameObjectWithTag("GameController").SetActive(false);
+        //Turn off UI
+        canvas.GetComponent<Canvas>().enabled = false;
+
+        // Turn off path
+        path.SetActive(false);
     }
 
     public void RotatePlaneWithSlider()
     {
         //rotate plane with the slider
-        rotVal = rotValSlider.value;
-        plane.transform.rotation = Quaternion.Euler(0, 0, rotVal);
+        plane.transform.rotation = Quaternion.Euler(0, 0, rotValSlider.value);
         //keep forceY at zero DO NOT CHANGE
         //forceY = rotVal / 70;
         //Debug.Log(forceY);
@@ -111,8 +116,9 @@ public class PaperPlaneV2 : MonoBehaviour {
 
     public void ChangePlaneThrowSpeed()
     {
-        powerVal = powerValSlider.value;
-        forceX = powerVal;
+        forceX = powerValSlider.value;
+
+        path.GetComponent<PredictionLineRenderer>().setVelocity(forceX);
         //Debug.Log("ForceX = " + forceX);
     }
 }

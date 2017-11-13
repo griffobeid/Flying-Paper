@@ -18,6 +18,8 @@ TagManager:
   - AirDirectionSlider
   - RightButton
   - LeftButton
+  - Path
+  - Floor
   layers:
   - Default
   - TransparentFX
