@@ -9,6 +9,15 @@ TagManager:
   - Arrow
   - Start
   - ArrowContainer
+  - ArrowMover
+  - PlaneHolder
+  - NextLevelButton
+  - PlaneRotationSlider
+  - PlaneThrowPowerSlider
+  - AirPowerSlider
+  - AirDirectionSlider
+  - RightButton
+  - LeftButton
   layers:
   - Default
   - TransparentFX
@@ -18,10 +27,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Layer2
+  - Plane
+  - Wall
+  - Air Currents
   - 
   - 
   - 

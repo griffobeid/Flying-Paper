@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-
+    /*
     bool flag;
     RaycastHit last;
 
@@ -32,4 +32,5 @@ public class InputHandler : MonoBehaviour
             last = hit;
         }
 	}
+    */
 }

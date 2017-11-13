@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(ParticleSystem))]
 public class Paperplane : MonoBehaviour
-{
+{   /*
     // vars set in unity
 
 
@@ -23,9 +23,9 @@ public class Paperplane : MonoBehaviour
     {
         // position the plane at the start point
         GameObject start = GameObject.FindGameObjectWithTag("Start");
-        gameObject.transform.position = new Vector3(start.transform.position.x + 2, start.transform.position.y - 2, 0);
+        gameObject.transform.position = new Vector3(start.transform.position.x - 3, start.transform.position.y - 4, 2.5f);
 
-        initialThrust = 10f;
+        initialThrust = 1f;
 
         fpScript = Camera.main.GetComponent<FlyingPaper>();
 
@@ -117,4 +117,5 @@ public class Paperplane : MonoBehaviour
         myRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
         myRigidbody.AddForce(transform.forward * initialThrust, ForceMode.Impulse);
     }
+    */
 }

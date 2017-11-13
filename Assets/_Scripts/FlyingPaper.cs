@@ -17,7 +17,7 @@ public class FlyingPaper : MonoBehaviour
     public AudioClip explosionSound;
     public AudioClip winSound;
     private AudioSource source;
-    public GameObject flyButton;
+    public GameObject flyButton, nextButton, settingsButton;
     public GameObject canvas;
 
     public bool __________________;
@@ -28,33 +28,20 @@ public class FlyingPaper : MonoBehaviour
     private void Awake()
     {
         source = GetComponent<AudioSource>();
+        nextButton = GameObject.FindGameObjectWithTag("NextLevelButton");
+        nextButton.SetActive(false);
     }
     // this gets called when the plane hits a wall
+
+    //CURRENTLY NOT USING THIS METHOD
+    /*
     public void PlaneDestroyed()
     {
         source.PlayOneShot(explosionSound, soundClipVol);
         source.PlayOneShot(failSound, soundClipVol);//play fail sound effect
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
-        lives--;
-
-        if (lives == 0)
-        {
-            // todo: display fail screen
-            // for now I am just reloading the current scene
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
-        else
-        {
-            GameObject plane = Instantiate(planePrefab) as GameObject;
-            GameObject newButton = Instantiate(flyButton) as GameObject;
-            newButton.transform.SetParent(canvas.transform, false);
-            newButton.GetComponent<Button>().onClick.AddListener(plane.GetComponent<Paperplane>().BeginFlight);
-        }
-
-
 
     }
+    */
 
     // destroy the coin and increment the score
     public void CoinPickup(Collider coin)
@@ -69,7 +56,24 @@ public class FlyingPaper : MonoBehaviour
     public void FinishLine()
     {
         source.PlayOneShot(winSound, soundClipVol);//play win sound
-        // todo: set the final score here and then load the next scene
+        // todo: set the final score here
         Debug.Log("You win!");
+
+        nextButton.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

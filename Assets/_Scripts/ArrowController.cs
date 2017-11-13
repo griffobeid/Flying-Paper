@@ -19,14 +19,16 @@ public class ArrowController : MonoBehaviour
     void Start()
     {
         // position it with the game object that it is attached to
-        gameObject.transform.position = new Vector3(GO.transform.position.x + (float)0.5, GO.transform.position.y + (float)2.4, 0);
+        gameObject.transform.position = new Vector3(GO.transform.position.x - (float)4, GO.transform.position.y + (float)5, 2.5f);
+        /*
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out last);
         posRotation = Quaternion.Euler(0, 0, 1);
         negRotation = Quaternion.Euler(0, 0, -1);
+        */
     }
 
-
+    /*
     public void ArrowDrag(RaycastHit hit, RaycastHit last)
     {
         if (last.point.x > hit.point.x && transform.localScale.x >= 1)
@@ -54,5 +56,5 @@ public class ArrowController : MonoBehaviour
         //} 
        
     }
-
+    */
 }
