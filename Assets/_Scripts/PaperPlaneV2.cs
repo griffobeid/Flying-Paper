@@ -12,7 +12,7 @@ public class PaperPlaneV2 : MonoBehaviour
     public Canvas canvas;
     Rigidbody rb;
     FlyingPaper fpScript;
-    GameObject plane, path;
+    GameObject plane;
     bool finished;
     public float initialThrust, initialTorque, forceX, forceY;
     public Slider rotValSlider, powerValSlider;
@@ -32,7 +32,6 @@ public class PaperPlaneV2 : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
 
         plane = GameObject.FindGameObjectWithTag("PlaneHolder");
-        path = GameObject.FindGameObjectWithTag("Path");
 
         finished = false;
     }
@@ -66,8 +65,6 @@ public class PaperPlaneV2 : MonoBehaviour
         else if (other.gameObject.CompareTag("Finish"))
         {
             finished = true;
-            // turn the UI back on
-            canvas.GetComponent<Canvas>().enabled = true;
             // call FinishLine() in the FlyingPaper script
             fpScript.FinishLine();
         }
@@ -99,10 +96,8 @@ public class PaperPlaneV2 : MonoBehaviour
         //Debug.Log("Final Force: " + forceAdded);
 
         //Turn off UI
-        canvas.GetComponent<Canvas>().enabled = false;
-
-        // Turn off path
-        path.SetActive(false);
+        //canvas.GetComponent<Canvas>().enabled = false;
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public void RotatePlaneWithSlider()
@@ -118,7 +113,7 @@ public class PaperPlaneV2 : MonoBehaviour
     {
         forceX = powerValSlider.value;
 
-        path.GetComponent<PredictionLineRenderer>().setVelocity(forceX);
+        //path.GetComponent<PredictionLineRenderer>().setVelocity(forceX);
         //Debug.Log("ForceX = " + forceX);
     }
 }
