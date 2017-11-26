@@ -1080,6 +1080,12 @@ Prefab:
       propertyPath: ventSound
       value: 
       objectReference: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
+    - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: ClearCoin
+      value: 
+      objectReference: {fileID: 1853392147574368, guid: b36bf25a6cbf84f46ba1e649128d8f65,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_IsPrefabParent: 0

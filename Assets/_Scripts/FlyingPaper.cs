@@ -9,6 +9,7 @@ public class FlyingPaper : MonoBehaviour
     public int lives;
     public Text scoreText;
     public GameObject planePrefab;
+    public GameObject ClearCoin;
     public AudioClip coinSound;
     public float soundClipVol;
     public AudioClip failSound;
@@ -48,8 +49,13 @@ public class FlyingPaper : MonoBehaviour
     {
         source.PlayOneShot(coinSound, soundClipVol);//play coin sound effect
         coin.gameObject.SetActive(false);
+        Instantiate(ClearCoin);
+        ClearCoin.transform.position = coin.transform.position;
+        ClearCoin.transform.rotation = coin.transform.rotation;
         this.score++;
         scoreText.text = "Score: " + score.ToString();
+        ClearCoin.SetActive(true);
+        Destroy(coin);
     }
 
     // called once the finish line is triggered
