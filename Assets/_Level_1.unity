@@ -213,17 +213,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83d700ec1880f45deb254dc508cb8752, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &531875514 stripped
+--- !u!1 &147751877 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1187626811339032, guid: 7214947bd551e6649bbd6ad9c3d7128a,
+  m_PrefabParentObject: {fileID: 1126913751019526, guid: d79c94d43dbb1481584d57bc3d551ec5,
     type: 2}
-  m_PrefabInternal: {fileID: 1582607968}
---- !u!114 &531875515 stripped
+  m_PrefabInternal: {fileID: 1356874195}
+--- !u!1 &252122117 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1878274734524076, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1356874195}
+--- !u!1 &613801513 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1179829682510800, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481793278}
+--- !u!114 &613801519
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114644085991023680, guid: 7214947bd551e6649bbd6ad9c3d7128a,
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 613801513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1356874198}
+  livesText: {fileID: 1095415043}
+  planePrefab: {fileID: 1555338677408460, guid: 7214947bd551e6649bbd6ad9c3d7128a,
     type: 2}
-  m_PrefabInternal: {fileID: 1582607968}
-  m_Script: {fileID: 11500000, guid: 7699a3b6da719d746abd607dc1240a08, type: 3}
+  coinSound: {fileID: 8300000, guid: fff12b43be753b9419a4c168e1e55a02, type: 3}
+  soundClipVol: 5
+  failSound: {fileID: 8300000, guid: 38930bce0b15d5642b7504cc05bd4fca, type: 3}
+  throwSound: {fileID: 8300000, guid: 7b209d4f44c559e40a1e5eb66ec61ddd, type: 3}
+  ventSound: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
+  explosionSound: {fileID: 0}
+  winSound: {fileID: 8300000, guid: 632d8c990db665e41b1043717fc0fd3d, type: 3}
+  canvas: {fileID: 1356874196}
+  settingsButton: {fileID: 147751877}
+  __________________: 0
 --- !u!1001 &784269235
 Prefab:
   m_ObjectHideFlags: 0
@@ -377,6 +406,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c0c3bc744e6f564a8f090b15ccf695b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1095415043 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114819867558309842, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1356874195}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1134104102
 Prefab:
   m_ObjectHideFlags: 0
@@ -708,41 +743,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114023759579085644, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1937429124}
-    - target: {fileID: 114840348617558442, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1937429124}
-    - target: {fileID: 114943848963038482, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 531875515}
     - target: {fileID: 223100226034005764, guid: d79c94d43dbb1481584d57bc3d551ec5,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1937429121}
-    - target: {fileID: 114738383393787164, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1937429124}
-    - target: {fileID: 114766284426588356, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 531875515}
-    - target: {fileID: 114989390697367052, guid: d79c94d43dbb1481584d57bc3d551ec5,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 531875515}
     - target: {fileID: 224751911883763462, guid: d79c94d43dbb1481584d57bc3d551ec5,
         type: 2}
       propertyPath: m_AnchorMax.y
@@ -784,11 +789,6 @@ Prefab:
 --- !u!1 &1356874196 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1611301539490968, guid: d79c94d43dbb1481584d57bc3d551ec5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1356874195}
---- !u!1 &1356874197 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1387418611129460, guid: d79c94d43dbb1481584d57bc3d551ec5,
     type: 2}
   m_PrefabInternal: {fileID: 1356874195}
 --- !u!114 &1356874198 stripped
@@ -854,41 +854,26 @@ Prefab:
       objectReference: {fileID: 1356874198}
     - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
-      propertyPath: planePrefab
+      propertyPath: livesText
       value: 
-      objectReference: {fileID: 531875514}
+      objectReference: {fileID: 1095415043}
     - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
-      propertyPath: flyButton
+      propertyPath: nextButton
       value: 
-      objectReference: {fileID: 1356874197}
+      objectReference: {fileID: 252122117}
+    - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: settingsButton
+      value: 
+      objectReference: {fileID: 147751877}
     - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1356874196}
-    - target: {fileID: 82865386896041398, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4856a6d7f06c7c34c94a785350f12562, type: 3}
-    - target: {fileID: 82865386896041398, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
-      propertyPath: ventSound
-      value: 
-      objectReference: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
-    - target: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
-      propertyPath: ClearCoin
-      value: 
-      objectReference: {fileID: 1853392147574368, guid: b36bf25a6cbf84f46ba1e649128d8f65,
-        type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1556281304
@@ -1003,6 +988,10 @@ Prefab:
       propertyPath: powerValSlider
       value: 
       objectReference: {fileID: 1466720468}
+    - target: {fileID: 1555338677408460, guid: 7214947bd551e6649bbd6ad9c3d7128a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7214947bd551e6649bbd6ad9c3d7128a, type: 2}
   m_IsPrefabParent: 0
@@ -1011,9 +1000,3 @@ Camera:
   m_PrefabParentObject: {fileID: 20057410822253880, guid: f09bc81bfe31ec646b9297ed5454b2e6,
     type: 2}
   m_PrefabInternal: {fileID: 1481793278}
---- !u!114 &1937429124 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114871600116795400, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1481793278}
-  m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}

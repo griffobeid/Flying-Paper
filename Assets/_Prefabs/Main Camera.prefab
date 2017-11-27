@@ -97,7 +97,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d8e014abe98942342a60f06f4124bedf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4856a6d7f06c7c34c94a785350f12562, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.523
   m_Pitch: 1
@@ -155,7 +155,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -186,14 +186,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 5
   scoreText: {fileID: 0}
-  planePrefab: {fileID: 0}
+  livesText: {fileID: 0}
+  planePrefab: {fileID: 1555338677408460, guid: 7214947bd551e6649bbd6ad9c3d7128a,
+    type: 2}
   coinSound: {fileID: 8300000, guid: fff12b43be753b9419a4c168e1e55a02, type: 3}
   soundClipVol: 5
   failSound: {fileID: 8300000, guid: 38930bce0b15d5642b7504cc05bd4fca, type: 3}
   throwSound: {fileID: 8300000, guid: 7b209d4f44c559e40a1e5eb66ec61ddd, type: 3}
-  ventSound: {fileID: 0}
+  ventSound: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
   explosionSound: {fileID: 0}
   winSound: {fileID: 8300000, guid: 632d8c990db665e41b1043717fc0fd3d, type: 3}
   flyButton: {fileID: 0}

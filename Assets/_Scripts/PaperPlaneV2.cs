@@ -12,10 +12,13 @@ public class PaperPlaneV2 : MonoBehaviour
     public Canvas canvas;
     Rigidbody rb;
     FlyingPaper fpScript;
-    GameObject plane;
-    bool finished;
+    GameObject planeHolder;
     public float initialThrust, initialTorque, forceX, forceY;
     public Slider rotValSlider, powerValSlider;
+    Button flyButton;
+    Vector3 holderStartPosition, planeStartPosition;
+    bool finished;
+    Quaternion holderStartRotation, planeStartRotation;
 
 
     // Use this for initialization
@@ -23,17 +26,36 @@ public class PaperPlaneV2 : MonoBehaviour
     {
         // position the plane at the start point
         GameObject start = GameObject.FindGameObjectWithTag("Start");
-        gameObject.transform.position = new Vector3(start.transform.position.x - 3, start.transform.position.y - 4, 2.5f);
-
+        rotValSlider = GameObject.FindGameObjectWithTag("PlaneRotationSlider").GetComponent<Slider>();
+        powerValSlider = GameObject.FindGameObjectWithTag("PlaneThrowPowerSlider").GetComponent<Slider>();
+        flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
+        planeHolder = GameObject.FindGameObjectWithTag("PlaneHolder");
+        Debug.Log(planeHolder);
         fpScript = Camera.main.GetComponent<FlyingPaper>();
+
+        planeStartPosition = new Vector3(start.transform.position.x - 3, start.transform.position.y - 4, 2.5f);
+        planeStartRotation = gameObject.transform.rotation;
+
+        gameObject.transform.position = planeStartPosition;
+
+        holderStartPosition = planeHolder.transform.position;
+        holderStartRotation = planeHolder.transform.rotation;
+
+        fpScript.SetStartPosition(holderStartPosition, planeStartPosition);
+        fpScript.SetStartRotation(holderStartRotation, planeStartRotation);
 
         rb = this.GetComponent<Rigidbody>();
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
-
-        plane = GameObject.FindGameObjectWithTag("PlaneHolder");
-
         finished = false;
+
+        rotValSlider.value = 0f;
+        powerValSlider.value = 0;
+
+        rotValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { RotatePlaneWithSlider(); });
+        powerValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { ChangePlaneThrowSpeed(); });
+        flyButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { BeginFlight(); });
+
     }
 
     // use case: round fail
@@ -41,15 +63,10 @@ public class PaperPlaneV2 : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         // destroy the plane anytime it collides with a wall
-        if (col.gameObject.tag == "Wall")
-        {
-            // call PlaneDestroyed() in the FlyingPaper script
-            //fpScript.PlaneDestroyed();
-        }
-        else if (col.gameObject.tag == "Floor" && !finished)
+        if (col.gameObject.tag == "Floor" && !finished)
         {
             new WaitForSeconds(2);
-            fpScript.Reset();
+            fpScript.DestroyPlaneAndReset();
         }
     }
 
@@ -64,8 +81,8 @@ public class PaperPlaneV2 : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
-            finished = true;
             // call FinishLine() in the FlyingPaper script
+            finished = true;
             fpScript.FinishLine();
         }
     }
@@ -75,45 +92,37 @@ public class PaperPlaneV2 : MonoBehaviour
     // also will hide the fly button in here
     public void BeginFlight()
     {
-        //Destroy(GameObject.FindGameObjectWithTag("GameController"));
-        //Destroy(GameObject.FindGameObjectWithTag("Arrow"));
-        //Destroy(GameObject.FindGameObjectWithTag("ArrowContainer"));
-
         //keep forceY at 0
         float forceAdded = (initialThrust + forceX + forceY);
-        Debug.Log(forceAdded);
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
-        //rb.AddForce(initialThrust * forceX, initialThrust * forceY, 0, ForceMode.Impulse);
+            
         if (forceAdded < 0)
             forceAdded = forceAdded * -1;
 
         rb.AddForce(transform.forward * forceAdded, ForceMode.Impulse);
         rb.AddTorque(transform.right * initialTorque);
 
-        //Debug.Log("forceY: " + forceY);
-        //Debug.Log("forceX: " + forceX);
-        //Debug.Log("Final Force: " + forceAdded);
-
         //Turn off UI
         //canvas.GetComponent<Canvas>().enabled = false;
-        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        flyButton.gameObject.SetActive(false);
     }
 
     public void RotatePlaneWithSlider()
     {
         //rotate plane with the slider
-        plane.transform.rotation = Quaternion.Euler(0, 0, rotValSlider.value);
+        if (planeHolder != null)
+        {
+            planeHolder.transform.rotation = Quaternion.Euler(0, 0, rotValSlider.value);
+        } else {
+            planeHolder = GameObject.FindGameObjectWithTag("PlaneHolder");
+        }
         //keep forceY at zero DO NOT CHANGE
         //forceY = rotVal / 70;
-        //Debug.Log(forceY);
     }
 
     public void ChangePlaneThrowSpeed()
     {
         forceX = powerValSlider.value;
-
-        //path.GetComponent<PredictionLineRenderer>().setVelocity(forceX);
-        //Debug.Log("ForceX = " + forceX);
     }
 }
