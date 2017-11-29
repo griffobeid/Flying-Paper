@@ -14,17 +14,14 @@ public class FlyingPaper : MonoBehaviour
     public AudioClip ventSound;
     public AudioClip explosionSound;
     public AudioClip winSound;
-    AudioSource source;
-    Button flyButton, nextButton;
-    public GameObject canvas, settingsButton;
-
-
-    public bool __________________;
+    public GameObject canvas;
 
     // private vars
     string currentLevel;
     int score;
     int lives;
+    AudioSource source;
+    Button flyButton, nextButton;
     DataController dataController;
     Vector3 holderStartPosition, planeStartPosition;
     Quaternion holderStartRotation, planeStartRotation;
@@ -32,10 +29,16 @@ public class FlyingPaper : MonoBehaviour
     void Start()
     {
         dataController = FindObjectOfType<DataController>();
+
         source = gameObject.GetComponent<AudioSource>();
+        SoundCheck();
+
         nextButton = GameObject.FindGameObjectWithTag("NextLevelButton").GetComponent<Button>();
-        flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
+        nextButton.onClick.AddListener(NextLevel);
         nextButton.gameObject.SetActive(false);
+
+        flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
+
         lives = 5;
         currentLevel = SceneManager.GetActiveScene().name;
         hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
@@ -117,5 +120,13 @@ public class FlyingPaper : MonoBehaviour
     {
         holderStartRotation = holderStart;
         planeStartRotation = planeStart;
+    }
+
+    public void SoundCheck() {
+        if(PlayerPrefs.GetInt("Sound") == 0) {
+            source.mute = true;
+        } else {
+            source.mute = false;
+        }
     }
 }

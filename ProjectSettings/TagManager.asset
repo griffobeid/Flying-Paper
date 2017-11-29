@@ -20,6 +20,9 @@ TagManager:
   - LeftButton
   - Path
   - Floor
+  - PauseMenu
+  - SoundButton
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

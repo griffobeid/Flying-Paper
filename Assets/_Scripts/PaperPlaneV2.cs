@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//This script is written to remove the use of Unity's particle system (for now)
-
 public class PaperPlaneV2 : MonoBehaviour
 {
-
+    // vars set in unity
+    public float initialThrust, initialTorque, forceX, forceY;
+    public Slider rotValSlider, powerValSlider;
     public Transform obj;
     public Canvas canvas;
+
+    // private vars
     Rigidbody rb;
     FlyingPaper fpScript;
     GameObject planeHolder;
-    public float initialThrust, initialTorque, forceX, forceY;
-    public Slider rotValSlider, powerValSlider;
     Button flyButton;
     Vector3 holderStartPosition, planeStartPosition;
     bool finished;

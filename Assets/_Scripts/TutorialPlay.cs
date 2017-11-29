@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TutorialPlay : MonoBehaviour {
+    AudioSource source;
+    void Start() {
+        source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
+        if(PlayerPrefs.GetInt("Sound") == 0) {
+            source.mute = true;
+        } else {
+            source.mute = false;
+        }
+    }
 
 	public void PlayGame()
     {
