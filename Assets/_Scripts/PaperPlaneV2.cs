@@ -30,7 +30,7 @@ public class PaperPlaneV2 : MonoBehaviour
         powerValSlider = GameObject.FindGameObjectWithTag("PlaneThrowPowerSlider").GetComponent<Slider>();
         flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
         planeHolder = GameObject.FindGameObjectWithTag("PlaneHolder");
-        Debug.Log(planeHolder);
+
         fpScript = Camera.main.GetComponent<FlyingPaper>();
 
         planeStartPosition = new Vector3(start.transform.position.x - 3, start.transform.position.y - 4, 2.5f);
@@ -65,9 +65,16 @@ public class PaperPlaneV2 : MonoBehaviour
         // destroy the plane anytime it collides with a wall
         if (col.gameObject.tag == "Floor" && !finished)
         {
-            new WaitForSeconds(2);
-            fpScript.DestroyPlaneAndReset();
+            StartCoroutine(WaitThenReset());
         }
+    }
+
+    // need to use and IEnumerator here so that the 
+    // game waits before resetting
+    IEnumerator WaitThenReset()
+    {
+        yield return new WaitForSeconds(3);
+        fpScript.DestroyPlaneAndReset();
     }
 
     // implementing coin pick up and finish line
@@ -96,7 +103,7 @@ public class PaperPlaneV2 : MonoBehaviour
         float forceAdded = (initialThrust + forceX + forceY);
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
-            
+
         if (forceAdded < 0)
             forceAdded = forceAdded * -1;
 
@@ -114,7 +121,9 @@ public class PaperPlaneV2 : MonoBehaviour
         if (planeHolder != null)
         {
             planeHolder.transform.rotation = Quaternion.Euler(0, 0, rotValSlider.value);
-        } else {
+        }
+        else
+        {
             planeHolder = GameObject.FindGameObjectWithTag("PlaneHolder");
         }
         //keep forceY at zero DO NOT CHANGE
@@ -125,4 +134,5 @@ public class PaperPlaneV2 : MonoBehaviour
     {
         forceX = powerValSlider.value;
     }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class FlyingPaper : MonoBehaviour
 {
     // vars set in unity
-    public Text scoreText, livesText;
+    public Text scoreText, livesText, hiscoreText;
     public GameObject planePrefab;
     public AudioClip coinSound;
     public float soundClipVol;
@@ -22,18 +22,23 @@ public class FlyingPaper : MonoBehaviour
     public bool __________________;
 
     // private vars
+    string currentLevel;
     int score;
     int lives;
+    DataController dataController;
     Vector3 holderStartPosition, planeStartPosition;
     Quaternion holderStartRotation, planeStartRotation;
 
     void Start()
     {
+        dataController = FindObjectOfType<DataController>();
         source = gameObject.GetComponent<AudioSource>();
         nextButton = GameObject.FindGameObjectWithTag("NextLevelButton").GetComponent<Button>();
         flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
         nextButton.gameObject.SetActive(false);
         lives = 5;
+        currentLevel = SceneManager.GetActiveScene().name;
+        hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
     }
 
 
@@ -63,6 +68,8 @@ public class FlyingPaper : MonoBehaviour
     public void FinishLine()
     {
         source.PlayOneShot(winSound, soundClipVol);//play win sound
+        dataController.SubmitNewPlayerScore(score, currentLevel);
+        hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
         // todo: set the final score here
         nextButton.gameObject.SetActive(true);
     }
@@ -78,7 +85,9 @@ public class FlyingPaper : MonoBehaviour
             holder.transform.rotation = holderStartRotation;
             plane.position = planeStartPosition;
             plane.rotation = planeStartRotation;
-        } else {
+        }
+        else
+        {
             Reset();
         }
     }

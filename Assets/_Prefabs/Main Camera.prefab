@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 124944718173167046}
   - component: {fileID: 81599469659393250}
   - component: {fileID: 82865386896041398}
-  - component: {fileID: 114871600116795400}
+  - component: {fileID: 114298023730013252}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -175,7 +175,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179829682510800}
   m_Enabled: 1
---- !u!114 &114871600116795400
+--- !u!114 &114298023730013252
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
+  hiscoreText: {fileID: 0}
   planePrefab: {fileID: 1555338677408460, guid: 7214947bd551e6649bbd6ad9c3d7128a,
     type: 2}
   coinSound: {fileID: 8300000, guid: fff12b43be753b9419a4c168e1e55a02, type: 3}
@@ -197,10 +198,8 @@ MonoBehaviour:
   ventSound: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
   explosionSound: {fileID: 0}
   winSound: {fileID: 8300000, guid: 632d8c990db665e41b1043717fc0fd3d, type: 3}
-  flyButton: {fileID: 0}
-  nextButton: {fileID: 0}
-  settingsButton: {fileID: 0}
   canvas: {fileID: 0}
+  settingsButton: {fileID: 0}
   __________________: 0
 --- !u!124 &124944718173167046
 Behaviour:
