@@ -1,10 +1,24 @@
 fileFormatVersion: 2
 guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b
-timeCreated: 1509118119
+timeCreated: 1512162676
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreText: {instanceID: 0}
+  - livesText: {instanceID: 0}
+  - hiscoreText: {instanceID: 0}
+  - planePrefab: {instanceID: 0}
+  - ClearCoin: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd,
+      type: 2}
+  - coinSound: {instanceID: 0}
+  - failSound: {instanceID: 0}
+  - throwSound: {instanceID: 0}
+  - ventSound: {instanceID: 0}
+  - explosionSound: {instanceID: 0}
+  - winSound: {instanceID: 0}
+  - canvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

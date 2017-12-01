@@ -643,7 +643,7 @@ Prefab:
         type: 2}
       propertyPath: ClearCoin
       value: 
-      objectReference: {fileID: 1853392147574368, guid: b36bf25a6cbf84f46ba1e649128d8f65,
+      objectReference: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
