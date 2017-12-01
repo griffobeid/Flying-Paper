@@ -19,6 +19,13 @@ public class PaperPlaneV2 : MonoBehaviour
     Vector3 holderStartPosition, planeStartPosition;
     bool finished;
     Quaternion holderStartRotation, planeStartRotation;
+
+    private float _sensitivity;
+    private Vector3 _mouseReference;
+    private Vector3 _mouseOffset;
+    private Vector3 _rotation;
+    private bool _isRotating;
+
     void Awake()
     {
         Init();
@@ -58,6 +65,41 @@ public class PaperPlaneV2 : MonoBehaviour
         rotValSlider.value = 0f;
         powerValSlider.value = 0;
 
+        _sensitivity = 0.6f;
+        _rotation = Vector3.zero;
+
+    }
+
+    void Update()
+    {
+        if (_isRotating)
+        {
+            // offset
+            _mouseOffset = (Input.mousePosition - _mouseReference);
+
+            // apply rotation
+            _rotation.z = -(_mouseOffset.x + _mouseOffset.y) * _sensitivity;
+
+            // rotate
+            GameObject.FindGameObjectWithTag("PlaneHolder").transform.Rotate(_rotation);
+
+
+            // store mouse
+            _mouseReference = Input.mousePosition;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        _isRotating = true;
+
+        // store mouse point
+        _mouseReference = Input.mousePosition;
+    }
+
+    void OnMouseUp()
+    {
+        _isRotating = false;
     }
 
     // use case: round fail
