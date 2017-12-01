@@ -60,17 +60,30 @@ public class FlyingPaper : MonoBehaviour
     }
 
     // destroy the coin and increment the score
-    public void CoinPickup(Collider coin)
+    public void CoinPickup(Collider col)
     {
-        source.PlayOneShot(coinSound, soundClipVol);//play coin sound effect
-        coin.gameObject.SetActive(false);
-        Instantiate(ClearCoin);
-        ClearCoin.transform.position = coin.transform.position;
-        ClearCoin.transform.rotation = coin.transform.rotation;
+        GameObject coin = col.gameObject;
+        GameObject clearCoin = Instantiate(ClearCoin) as GameObject;
+
+        clearCoin.transform.position = coin.transform.position;
+        clearCoin.transform.rotation = coin.transform.rotation;
+
+        source.PlayOneShot(coinSound, soundClipVol);
+
         this.score++;
         scoreText.text = "Score: " + score.ToString();
-        ClearCoin.SetActive(true);
         Destroy(coin);
+    }
+
+    // teleport to the receiver
+    public void Teleport(Collider col) {
+        GameObject sender = col.gameObject;
+        GameObject receiver = sender.transform.parent.GetChild(1).gameObject;
+        GameObject plane = GameObject.FindGameObjectWithTag("PlaneHolder");
+
+
+        plane.transform.position = receiver.transform.position;
+        plane.transform.position = new Vector3(receiver.transform.position.x + 10, receiver.transform.position.y, receiver.transform.position.z);
     }
 
     // called once the finish line is triggered

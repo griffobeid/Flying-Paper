@@ -77,21 +77,23 @@ public class PaperPlaneV2 : MonoBehaviour
         fpScript.DestroyPlaneAndReset();
     }
 
-    // implementing coin pick up and finish line
+    // implementing coin pick up, finish line, and teleporter
     // calls a script in the FlyingPaper class
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            // call CoinPickup() in the FlyingPaper script
             fpScript.CoinPickup(other);
+        }
+        else if(other.gameObject.CompareTag("Teleporter"))
+        {
+            fpScript.Teleport(other);
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
-            // call FinishLine() in the FlyingPaper script
             finished = true;
             fpScript.FinishLine();
-        }
+        } 
     }
 
     // this method is called when the fly button is clicked
@@ -110,8 +112,6 @@ public class PaperPlaneV2 : MonoBehaviour
         rb.AddForce(transform.forward * forceAdded, ForceMode.Impulse);
         rb.AddTorque(transform.right * initialTorque);
 
-        //Turn off UI
-        //canvas.GetComponent<Canvas>().enabled = false;
         flyButton.gameObject.SetActive(false);
     }
 

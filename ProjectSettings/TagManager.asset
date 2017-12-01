@@ -23,6 +23,7 @@ TagManager:
   - PauseMenu
   - SoundButton
   - MainCanvas
+  - Teleporter
   layers:
   - Default
   - TransparentFX
