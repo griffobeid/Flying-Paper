@@ -119,7 +119,7 @@ public class FlyingPaper : MonoBehaviour
         }
         else
         {
-            Reset();
+            SceneManager.LoadScene("GameOver");
         }
     }
 
