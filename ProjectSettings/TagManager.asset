@@ -18,12 +18,12 @@ TagManager:
   - AirDirectionSlider
   - RightButton
   - LeftButton
-  - Path
   - Floor
   - PauseMenu
   - SoundButton
   - MainCanvas
   - Teleporter
+  - Trail
   layers:
   - Default
   - TransparentFX

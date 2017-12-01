@@ -19,10 +19,16 @@ public class PaperPlaneV2 : MonoBehaviour
     Vector3 holderStartPosition, planeStartPosition;
     bool finished;
     Quaternion holderStartRotation, planeStartRotation;
-
+    void Awake()
+    {
+        Init();
+        rotValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { RotatePlaneWithSlider(); });
+        powerValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { ChangePlaneThrowSpeed(); });
+        flyButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { BeginFlight(); });
+    }
 
     // Use this for initialization
-    void Awake()
+    public void Init()
     {
         // position the plane at the start point
         GameObject start = GameObject.FindGameObjectWithTag("Start");
@@ -51,10 +57,6 @@ public class PaperPlaneV2 : MonoBehaviour
 
         rotValSlider.value = 0f;
         powerValSlider.value = 0;
-
-        rotValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { RotatePlaneWithSlider(); });
-        powerValSlider.GetComponentInChildren<Slider>().onValueChanged.AddListener(delegate { ChangePlaneThrowSpeed(); });
-        flyButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { BeginFlight(); });
 
     }
 
@@ -111,6 +113,8 @@ public class PaperPlaneV2 : MonoBehaviour
 
         rb.AddForce(transform.forward * forceAdded, ForceMode.Impulse);
         rb.AddTorque(transform.right * initialTorque);
+
+        Debug.Log(rb.angularVelocity);
 
         flyButton.gameObject.SetActive(false);
     }

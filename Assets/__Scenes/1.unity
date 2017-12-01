@@ -993,21 +993,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114644085991023680, guid: 7214947bd551e6649bbd6ad9c3d7128a,
-        type: 2}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114644085991023680, guid: 7214947bd551e6649bbd6ad9c3d7128a,
-        type: 2}
-      propertyPath: rotValSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114644085991023680, guid: 7214947bd551e6649bbd6ad9c3d7128a,
-        type: 2}
-      propertyPath: powerValSlider
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7214947bd551e6649bbd6ad9c3d7128a, type: 2}
   m_IsPrefabParent: 0

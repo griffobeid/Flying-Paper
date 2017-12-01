@@ -55,7 +55,7 @@ public class FlyingPaper : MonoBehaviour
         livesText.text = "Lives: " + lives.ToString();
         source.PlayOneShot(explosionSound, soundClipVol);
         source.PlayOneShot(failSound, soundClipVol);//play fail sound effect
-        Destroy(GameObject.FindGameObjectWithTag("PlaneHolder"));
+        //Destroy(GameObject.FindGameObjectWithTag("PlaneHolder"));
         SoftReset();
     }
 
@@ -101,12 +101,21 @@ public class FlyingPaper : MonoBehaviour
         if (lives > 0)
         {
             flyButton.gameObject.SetActive(true);
-            GameObject holder = Instantiate(planePrefab) as GameObject;
+            //GameObject holder = Instantiate(planePrefab) as GameObject;
+            GameObject holder = GameObject.FindGameObjectWithTag("PlaneHolder");
+            GameObject trail = GameObject.FindGameObjectWithTag("Trail");
             Transform plane = holder.transform.GetChild(0);
+
+            trail.SetActive(false);
+            //Destroy(trail);
             holder.transform.position = holderStartPosition;
             holder.transform.rotation = holderStartRotation;
             plane.position = planeStartPosition;
             plane.rotation = planeStartRotation;
+            plane.GetComponent<PaperPlaneV2>().Init();
+            trail.SetActive(true);
+            //GameObject newTrail = Instantiate(trail) as GameObject;
+            //newTrail.transform.parent = plane;
         }
         else
         {
@@ -148,4 +157,5 @@ public class FlyingPaper : MonoBehaviour
             source.mute = false;
         }
     }
+
 }
