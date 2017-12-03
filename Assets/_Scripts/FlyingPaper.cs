@@ -19,6 +19,7 @@ public class FlyingPaper : MonoBehaviour
 
     // private vars
     string currentLevel;
+    string returnToLevel;
     int score;
     int lives;
     AudioSource source;
@@ -33,11 +34,13 @@ public class FlyingPaper : MonoBehaviour
 
         source = gameObject.GetComponent<AudioSource>();
         SoundCheck();
-
+        
         nextButton = GameObject.FindGameObjectWithTag("NextLevelButton").GetComponent<Button>();
         nextButton.onClick.AddListener(NextLevel);
-        nextButton.gameObject.SetActive(false);
-
+        if (SceneManager.GetActiveScene().name != "GameOver")
+        {
+            nextButton.gameObject.SetActive(false);
+        }
         flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
 
         lives = 5;
@@ -119,6 +122,7 @@ public class FlyingPaper : MonoBehaviour
         }
         else
         {
+            returnToLevel = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -135,7 +139,21 @@ public class FlyingPaper : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(SceneManager.GetActiveScene().name=="GameOver")
+        {
+            if (returnToLevel != null)
+            {
+                SceneManager.LoadScene(returnToLevel);
+            }
+            else
+            {
+                SceneManager.LoadScene("1");
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void SetStartPosition(Vector3 holderStart, Vector3 planeStart)
