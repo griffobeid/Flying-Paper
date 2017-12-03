@@ -62,11 +62,11 @@ public class PaperPlaneV2 : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         finished = false;
 
-        rotValSlider.value = 0f;
-        powerValSlider.value = 0;
 
         _sensitivity = 0.6f;
         _rotation = Vector3.zero;
+
+        RotatePlaneWithSlider();
 
     }
 
@@ -117,7 +117,7 @@ public class PaperPlaneV2 : MonoBehaviour
     // game waits before resetting
     IEnumerator WaitThenReset()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         fpScript.DestroyPlaneAndReset();
     }
 
@@ -155,8 +155,6 @@ public class PaperPlaneV2 : MonoBehaviour
 
         rb.AddForce(transform.forward * forceAdded, ForceMode.Impulse);
         rb.AddTorque(transform.right * initialTorque);
-
-        Debug.Log(rb.angularVelocity);
 
         flyButton.gameObject.SetActive(false);
     }

@@ -17,18 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes/2.unity
     guid: be67bbe142dfff6449120cc5ad4074fb
-  - enabled: 0
-    path: Assets/__Scenes/_Level_3.unity
-    guid: 2fef4f82e63d9144f9aa4b3e6dcedd63
-  - enabled: 0
-    path: Assets/__Scenes/_Level_4.unity
-    guid: f03beed34c04a944982e89523f5500e0
-  - enabled: 0
-    path: Assets/__Scenes/_Level_5.unity
-    guid: 2ed69a362ba4ccd4eaed1bdaa3af8ee7
-  - enabled: 0
-    path: Assets/__Scenes/_Level_6.unity
-    guid: a1b2f4bf1efe34321b53006ba05638f3
-  - enabled: 0
-    path: Assets/__Scenes/GameOver.unity
-    guid: 194a6395ce519d646bf521d914f40a2d
+  - enabled: 1
+    path: Assets/__Scenes/3.unity
+    guid: b6e3e9eb5d314474f86d0d8cd8a8b797
+  - enabled: 1
+    path: Assets/__Scenes/4.unity
+    guid: b061c34101967a144b9fad748d4af890
+  - enabled: 1
+    path: Assets/__Scenes/5.unity
+    guid: 1716dd113714dc74cacd3abc67531e48
+  - enabled: 1
+    path: Assets/__Scenes/6.unity
+    guid: c7e6847c03519464e82826c9e7a4540f
+  - enabled: 1
+    path: Assets/__Scenes/7.unity
+    guid: 79d9ff64fc3f033419bf327f97c73a62

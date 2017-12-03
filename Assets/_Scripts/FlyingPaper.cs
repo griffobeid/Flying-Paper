@@ -16,6 +16,8 @@ public class FlyingPaper : MonoBehaviour
     public AudioClip explosionSound;
     public AudioClip winSound;
     public GameObject canvas;
+    public Slider rotSlider, speedSlider;
+    private static float rSliderVal, sSliderVal;
 
     // private vars
     string currentLevel;
@@ -45,6 +47,12 @@ public class FlyingPaper : MonoBehaviour
         hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
     }
 
+    //get slider values to update
+    void Update()
+    {
+        rSliderVal = rotSlider.value;
+        sSliderVal = speedSlider.value ;
+    }
 
     // this gets called when the plane hits the floor
     // if lives are greater than 0 then the level soft resets
@@ -53,7 +61,7 @@ public class FlyingPaper : MonoBehaviour
     {
         lives = lives - 1;
         livesText.text = "Lives: " + lives.ToString();
-        source.PlayOneShot(explosionSound, soundClipVol);
+        //source.PlayOneShot(explosionSound, soundClipVol);
         source.PlayOneShot(failSound, soundClipVol);//play fail sound effect
         //Destroy(GameObject.FindGameObjectWithTag("PlaneHolder"));
         SoftReset();
