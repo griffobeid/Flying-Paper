@@ -21,7 +21,7 @@ public class FlyingPaper : MonoBehaviour
 
     // private vars
     string currentLevel;
-    string returnToLevel;
+    int returnToLevel;
     int score;
     int lives;
     AudioSource source;
