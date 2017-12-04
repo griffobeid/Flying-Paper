@@ -131,7 +131,6 @@ public class FlyingPaper : MonoBehaviour
         }
         else
         {
-            returnToLevel = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene("GameOver");
         }
     }
