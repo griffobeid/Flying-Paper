@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WindController : MonoBehaviour {
 
-    public GameObject plane, arrowTop;
+    public GameObject plane, arrowTop, arrowBot;
     public Slider airpowerSlider;
     public float ventForce = 2f, fwdDamper = 1, upForce = 5;
     private float airpower;
@@ -31,13 +31,14 @@ public class WindController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        //arrowBot.GetComponent<Collider>().enabled = false;
         arrowPos = arrowTop.transform.localPosition;
         arrowRot = arrowTop.transform.rotation;
-        airpower = airpowerSlider.value;
+        airpower = airpowerSlider.value * 1.3f;
+        if (airpower < 0) airpower *= -1;
 
-        float newPlaneRotVal = 0.0f;
 
-        Debug.Log("ArrowRot value: " + arrowRot);
+        Debug.Log("ArrowRot value: " + arrowRot.x);
 
         rb = plane.GetComponent<Rigidbody>();
 
@@ -49,46 +50,108 @@ public class WindController : MonoBehaviour {
         else
             isPlaneForward = false;
 
-        
+        //STOP PLANE
+        rb.velocity = Vector3.zero;
 
-        //make sure arrow position is positive for physics calculations
-        if (arrowPos.x < 0)
-            arrowPos.x = arrowPos.x * -1;
 
-        //setting how hard vent should push up based on rotation
-        //and also setting plane rotation
-        if (arrowRot.x == 0.0f)
+
+        //push plane in direction, add force based on wind speed slider and rotation of arrow.
+        if (arrowRot.x <= -0.5)
         {
-            upForce = 2.25f;
-            newPlaneRotVal = -80;
+            rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 1.8f), ForceMode.Impulse);
+
         }
-        else if (arrowRot.x == 0.1 || arrowRot.x == -0.1)
+        else if (arrowRot.x <= -0.4)
         {
-            upForce = 2;
-            newPlaneRotVal = -55;
+            rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 1.2f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
         }
-        else if (arrowRot.x == 0.2 || arrowRot.x == -0.2)
+        else if (arrowRot.x <= -0.3)
         {
-            upForce = 1.75f;
-            newPlaneRotVal = -30;
+            rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.7f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+
         }
-        else if (arrowRot.x == 0.3 || arrowRot.x == -0.3)
+        else if (arrowRot.x <= -0.2)
         {
-            upForce = 1.5f;
-            newPlaneRotVal = -15;
+            rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.5f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+
         }
-        else if (arrowRot.x == 0.4 || arrowRot.x == -0.4)
+        else if (arrowRot.x <= -0.1)
         {
-            upForce = 1.25f;
-            newPlaneRotVal = -10;
+            rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.3f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+        }
+        else if (arrowRot.x > -0.1 && arrowRot.x <= 0.1)
+        {
+            if (isPlaneForward)
+            {
+                rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+                rb.AddForce(rb.transform.up * airpower * upForce, ForceMode.Impulse);
+                rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+            }
+            else
+            {
+                rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+                rb.AddForce(rb.transform.up * airpower * upForce, ForceMode.Impulse);
+                rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+            }
+
+        }
+        else if (arrowRot.x <= 0.1)
+        {
+            rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.3f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+
+        }
+        else if (arrowRot.x <= 0.2)
+        {
+            rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.5f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+        }
+        else if (arrowRot.x <= 0.3)
+        {
+            rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 0.7f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+            
+
+        }
+        else if (arrowRot.x <= 0.4)
+        {
+            rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 1.2f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
+
+        }
+        else if (arrowRot.x >=0.4)
+        {
+            rb.transform.localEulerAngles = new Vector3(-5, 90.0f, 15.0f);
+            rb.AddForce(rb.transform.up * airpower * (upForce - 1.8f), ForceMode.Impulse);
+            rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
+
         }
         else
         {
-            upForce = 1;
-            newPlaneRotVal = -5;
+            //rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
         }
 
-
+        /*
         //push up
         if (arrowRot.x > -0.05 && arrowRot.x < 0.05)
         {
@@ -120,7 +183,10 @@ public class WindController : MonoBehaviour {
             Debug.Log("Push left");
             fwdDamper = 1;
         }
+        */
     }
+
+
 
     public void GetRotation()
     {
