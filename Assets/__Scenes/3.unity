@@ -1112,6 +1112,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd,
         type: 2}
+    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: rotSlider
+      value: 
+      objectReference: {fileID: 1004334746}
+    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: speedSlider
+      value: 
+      objectReference: {fileID: 1004334745}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_IsPrefabParent: 0

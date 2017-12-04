@@ -42,6 +42,7 @@ public class FlyingPaper : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "GameOver")
         {
             nextButton.gameObject.SetActive(false);
+            returnToLevel = Application.loadedLevel;
         }
         flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
 
@@ -151,7 +152,7 @@ public class FlyingPaper : MonoBehaviour
         {
             if (returnToLevel != null)
             {
-                SceneManager.LoadScene(returnToLevel);
+                Application.LoadLevel(returnToLevel);
             }
             else
             {

@@ -2027,6 +2027,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   arrowTop: {fileID: 698633531}
+  airpowerSlider: {fileID: 0}
+  ventForce: 2
+  fwdDamper: 1
+  upForce: 5
 --- !u!23 &698633535
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2908,6 +2912,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd,
         type: 2}
+    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: rotSlider
+      value: 
+      objectReference: {fileID: 138685522}
+    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+        type: 2}
+      propertyPath: speedSlider
+      value: 
+      objectReference: {fileID: 931932300}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_IsPrefabParent: 0
@@ -3560,6 +3574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   arrowTop: {fileID: 1478867692}
+  airpowerSlider: {fileID: 0}
+  ventForce: 2
+  fwdDamper: 1
+  upForce: 5
 --- !u!23 &1478867696
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4698,6 +4716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   arrowTop: {fileID: 1870579627}
+  airpowerSlider: {fileID: 0}
+  ventForce: 2
+  fwdDamper: 1
+  upForce: 5
 --- !u!23 &1870579631
 MeshRenderer:
   m_ObjectHideFlags: 0
