@@ -16,6 +16,7 @@ public class DataController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    //used for sound
     void InitiateSound()
     {
         if (!PlayerPrefs.HasKey("Sound"))
@@ -25,7 +26,7 @@ public class DataController : MonoBehaviour
         }
     }
 
-
+    //for muting sound
     public void ToggleSound()
     {
         if (SceneManager.GetActiveScene().name != "MainMenu")
@@ -63,12 +64,13 @@ public class DataController : MonoBehaviour
         }
     }
 
-
+    //called to load main menu scene
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
+    //called to load pause menu with selectable options
     public void LoadPauseMenu()
     {
         pause = Instantiate(pauseMenu) as GameObject;
@@ -94,6 +96,7 @@ public class DataController : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //sets pause menu to inactive
     public void HidePauseMenu()
     {
         if (pause != null)
@@ -104,16 +107,19 @@ public class DataController : MonoBehaviour
         }
     }
 
+    //loads the level select scene
     public void LoadLevelsMenu()
     {
         SceneManager.LoadScene("LevelSelect");
     }
 
+    //re-loads the current scene
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    //used for keeping track of level scores
     public void SubmitNewPlayerScore(int newScore, string level)
     {
         if (newScore > GetHighestPlayerScore(level))
@@ -122,15 +128,18 @@ public class DataController : MonoBehaviour
         }
     }
 
+    //used to get the highest score;
     public int GetHighestPlayerScore(string level)
     {
         return PlayerPrefs.GetInt(level);
     }
 
+    //loads first scene of game
     public void StartGame() {
         SceneManager.LoadScene("_Level_0_Final");
     }
 
+    //saves score to playerprefs
     void SavePlayerProgress(string level, int score)
     {
         PlayerPrefs.SetInt(level, score);

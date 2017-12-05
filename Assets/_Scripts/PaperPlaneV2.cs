@@ -10,8 +10,6 @@ public class PaperPlaneV2 : MonoBehaviour
     public Slider rotValSlider, powerValSlider;
     public Transform obj;
     public Canvas canvas;
-
-    // private vars
     Rigidbody rb;
     FlyingPaper fpScript;
     GameObject planeHolder;
@@ -20,12 +18,14 @@ public class PaperPlaneV2 : MonoBehaviour
     bool finished;
     Quaternion holderStartRotation, planeStartRotation;
 
+    //private vars
     private float _sensitivity;
     private Vector3 _mouseReference;
     private Vector3 _mouseOffset;
     private Vector3 _rotation;
     private bool _isRotating;
 
+    //init
     void Awake()
     {
         Init();
@@ -70,6 +70,7 @@ public class PaperPlaneV2 : MonoBehaviour
 
     }
 
+    //used for rotating the plane by clicking and dragging it with the mouse
     void Update()
     {
         if (_isRotating)
@@ -89,6 +90,7 @@ public class PaperPlaneV2 : MonoBehaviour
         }
     }
 
+    //click rotation
     void OnMouseDown()
     {
         _isRotating = true;
@@ -97,6 +99,7 @@ public class PaperPlaneV2 : MonoBehaviour
         _mouseReference = Input.mousePosition;
     }
 
+    //stop rotation when mouse button released
     void OnMouseUp()
     {
         _isRotating = false;
@@ -123,14 +126,9 @@ public class PaperPlaneV2 : MonoBehaviour
         {
             fpScript.CoinPickup(other);
         }
-        //else if(other.gameObject.CompareTag("Teleporter"))
-       // {
-       //     Teleporter.Teleport(other);
-       // }
         else if (other.gameObject.CompareTag("Finish"))
         {
             rb = this.GetComponent<Rigidbody>();
-            //rb.constraints = RigidbodyConstraints.FreezeAll;
             finished = true;
             fpScript.FinishLine();
         } 

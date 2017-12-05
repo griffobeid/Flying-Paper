@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour {
 
+    //declare variables
     public GameObject plane;
     public GameObject receiver;
     public float teleXOffset, teleYOffset;
     public bool pointedRight = true;
     FlyingPaper fpScript;
 
+
+    //This is responsible for making the teleporter work
     public void OnTriggerEnter(Collider col)
     {
-        fpScript = Camera.main.GetComponent<FlyingPaper>();
-        fpScript.PlayTeleportSound();
+        fpScript = Camera.main.GetComponent<FlyingPaper>(); //access flyingpaper script
+        fpScript.PlayTeleportSound();   //plays teleporter sound
 
-        Vector3 planerot = plane.transform.localEulerAngles;
-        bool isPlaneForward;
+        Vector3 planerot = plane.transform.localEulerAngles;    //gets plane rotation
+        bool isPlaneForward;    //used to determine if plane is facing towards the right of the screen;
 
+        //setup rigidbody for physics
         Rigidbody rb;
         rb = plane.GetComponent<Rigidbody>();
-
-        Debug.Log("Plane rotation: " + rb.velocity);
 
         //determine direction of plane flight to decide which way to send out of teleporter.
         if (rb.velocity.x < 0)
@@ -35,6 +37,7 @@ public class Teleporter : MonoBehaviour {
             Debug.Log("Plane pointed left");
         }
 
+        //send out of teleporter based on direction of plane flight and direction receiver node is facing.
         if (isPlaneForward && pointedRight || !isPlaneForward && !pointedRight)
         {
             //Teleport Plane

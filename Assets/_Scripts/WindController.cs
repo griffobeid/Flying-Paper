@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//this class is used for calculating the direction and force used upon the airplane when coming into contact with a "gust of air" from a vent or fan.
+
 public class WindController : MonoBehaviour {
 
     public GameObject plane, arrowTop, arrowBot;
@@ -14,6 +16,7 @@ public class WindController : MonoBehaviour {
     Rigidbody rb;
     private bool isPlaneForward;
 
+    //instantiate
     private void Start()
     {
         arrowPos = arrowTop.transform.localPosition;
@@ -22,27 +25,22 @@ public class WindController : MonoBehaviour {
         rb = plane.GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        arrowRot = arrowTop.transform.rotation;
-        if (Input.GetKeyDown("r"))
-            Debug.Log(arrowRot);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         //arrowBot.GetComponent<Collider>().enabled = false;
         arrowPos = arrowTop.transform.localPosition;
         arrowRot = arrowTop.transform.rotation;
         airpower = airpowerSlider.value * 1.3f;
+        //make sure airpower is positive for physics calculations
         if (airpower < 0) airpower *= -1;
 
 
-        Debug.Log("ArrowRot value: " + arrowRot.x);
+        //Debug.Log("ArrowRot value: " + arrowRot.x);
 
+        //set up rigidbody for physics calculations
         rb = plane.GetComponent<Rigidbody>();
 
-        Vector3 planerot = plane.transform.localEulerAngles;
+        Vector3 planerot = plane.transform.localEulerAngles;    //get planerotation
 
         //determine direction of plane flight to apply forward dampening.
         if (planerot.y >= 0 && planerot.y <= 90 || planerot.y >= 180 && planerot.y <= 270 || planerot.y >= -180 && planerot.y <= -90 || planerot.y >= -360 && planerot.y <= -270)
@@ -53,11 +51,15 @@ public class WindController : MonoBehaviour {
         //STOP PLANE
         rb.velocity = Vector3.zero;
 
+        //keep plane from flying out of the stage
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
+
+        Vector3 planePos = rb.transform.position;
 
         //push plane in direction, add force based on wind speed slider and rotation of arrow.
         if (arrowRot.x <= -0.5)
         {
+            rb.transform.position = new Vector3(planePos.x - 5, planePos.y, planePos.z);
             rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
             rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
             rb.AddForce(rb.transform.up * airpower * (upForce - 1.8f), ForceMode.Impulse);
@@ -65,12 +67,14 @@ public class WindController : MonoBehaviour {
         }
         else if (arrowRot.x <= -0.4)
         {
+            rb.transform.position = new Vector3(planePos.x - 5, planePos.y, planePos.z);
             rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
             rb.AddForce(rb.transform.up * airpower * (upForce - 1.2f), ForceMode.Impulse);
             rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
         }
         else if (arrowRot.x <= -0.3)
         {
+            rb.transform.position = new Vector3(planePos.x - 5, planePos.y, planePos.z);
             rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
             rb.AddForce(rb.transform.up * airpower * (upForce - 0.7f), ForceMode.Impulse);
             rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
@@ -79,6 +83,7 @@ public class WindController : MonoBehaviour {
         }
         else if (arrowRot.x <= -0.2)
         {
+            rb.transform.position = new Vector3(planePos.x - 5, planePos.y, planePos.z);
             rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
             rb.AddForce(rb.transform.up * airpower * (upForce - 0.5f), ForceMode.Impulse);
             rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
@@ -87,6 +92,7 @@ public class WindController : MonoBehaviour {
         }
         else if (arrowRot.x <= -0.1)
         {
+            rb.transform.position = new Vector3(planePos.x - 5, planePos.y, planePos.z);
             rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
             rb.AddForce(rb.transform.up * airpower * (upForce - 0.3f), ForceMode.Impulse);
             rb.AddForce(rb.transform.forward * (ventForce + airpower), ForceMode.Impulse);
@@ -148,49 +154,7 @@ public class WindController : MonoBehaviour {
         }
         else
         {
-            //rb.transform.localEulerAngles = new Vector3(-5, -90.0f, -15.0f);
+            Debug.Log("Error: Something went wrong with ARROW in WindController.cs");
         }
-
-        /*
-        //push up
-        if (arrowRot.x > -0.05 && arrowRot.x < 0.05)
-        {
-            rb.AddForce(rb.transform.up * ventForce * 0.03f * (airpower + upForce), ForceMode.Impulse);
-        }
-        //push to right
-        else if (arrowRot.x < 0)
-        {
-            if (isPlaneForward)
-                fwdDamper = 0.1f;
-            else
-                upForce *= 0.1f;
-            rb.transform.localEulerAngles = new Vector3(-5.0f, -90.0f, -15.0f);
-            rb.AddForce(rb.transform.forward * ventForce * fwdDamper * airpower * 0.1f, ForceMode.Impulse);
-            rb.AddForce(rb.transform.up * ventForce * 0.02f * (airpower + upForce), ForceMode.Impulse);
-            Debug.Log("Push right");
-            fwdDamper = 1;
-        }
-        //push left
-        else
-        {
-            if (!isPlaneForward)
-                fwdDamper = 0.1f;
-            else
-                upForce *= 0.1f;
-            rb.transform.localEulerAngles = new Vector3(5.0f, 90.0f, 15.0f);
-            rb.AddForce(rb.transform.forward * ventForce * fwdDamper * airpower * 0.1f, ForceMode.Impulse);
-            rb.AddForce(rb.transform.up * ventForce * 0.02f * (airpower + upForce), ForceMode.Impulse);
-            Debug.Log("Push left");
-            fwdDamper = 1;
-        }
-        */
-    }
-
-
-
-    public void GetRotation()
-    {
-        arrowPos = arrowTop.transform.localPosition;
-        Debug.Log(arrowPos);
     }
 }

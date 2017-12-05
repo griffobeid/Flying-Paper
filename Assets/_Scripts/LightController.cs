@@ -8,7 +8,7 @@ public class LightController : MonoBehaviour {
     public float redChange, greenChange, blueChange;
     FlyingPaper fpscript;
 
-    // Update is called once per frame
+    //changes intensity and color of light. Used for last level, level 8;
     void FixedUpdate () {
         if (this.GetComponent<Light>().intensity <= .5 || this.GetComponent<Light>().intensity >= 3)
             intensityFluctuator *= -1;
