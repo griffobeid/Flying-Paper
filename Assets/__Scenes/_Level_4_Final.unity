@@ -457,7 +457,7 @@ Prefab:
     - target: {fileID: 114450507633211512, guid: be2eb3f2d897c62418b804c991d3d884,
         type: 2}
       propertyPath: ventForce
-      value: 0.7
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 114980038638386416, guid: be2eb3f2d897c62418b804c991d3d884,
         type: 2}
@@ -1049,7 +1049,7 @@ Prefab:
     - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
         type: 2}
       propertyPath: ventForce
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
         type: 2}
@@ -1200,6 +1200,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadPauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000906716532408, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972229137}
+    - target: {fileID: 114000906716532408, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayThrowSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d79c94d43dbb1481584d57bc3d551ec5, type: 2}
