@@ -1025,6 +1025,16 @@ Prefab:
       propertyPath: plane
       value: 
       objectReference: {fileID: 1637499312}
+    - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
+        type: 2}
+      propertyPath: upForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
+        type: 2}
+      propertyPath: ventForce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55a2491fbca63e47b69a6f1f77f2340, type: 2}
   m_IsPrefabParent: 0

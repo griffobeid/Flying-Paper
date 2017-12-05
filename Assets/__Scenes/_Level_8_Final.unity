@@ -2342,13 +2342,18 @@ Prefab:
     - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
         type: 2}
       propertyPath: upForce
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
         type: 2}
       propertyPath: plane
       value: 
       objectReference: {fileID: 1088068741}
+    - target: {fileID: 114272341091157750, guid: f55a2491fbca63e47b69a6f1f77f2340,
+        type: 2}
+      propertyPath: ventForce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55a2491fbca63e47b69a6f1f77f2340, type: 2}
   m_IsPrefabParent: 0
@@ -5463,7 +5468,7 @@ MonoBehaviour:
   airpowerSlider: {fileID: 1281917909}
   ventForce: 1
   fwdDamper: 1
-  upForce: 2
+  upForce: 1.5
 --- !u!23 &1932493484
 MeshRenderer:
   m_ObjectHideFlags: 0
