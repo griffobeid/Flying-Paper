@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes/_Level_8_Final.unity
     guid: e0a2858e6a255a5499d49f955c9e5c43
-  - enabled: 0
+  - enabled: 1
+    path: Assets/__Scenes/EndSplashScreen.unity
+    guid: 63214753df2145e49abb2f748ecbe5ff
+  - enabled: 1
     path: Assets/__Scenes/GameOver.unity
     guid: 685a2147e68b949499b0ab5f555d8896
