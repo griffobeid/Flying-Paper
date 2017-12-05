@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class DataController : MonoBehaviour
 {
-    public GameObject pauseMenu, levelsMenu;
+    public GameObject pauseMenu;
     GameObject pause, levels, mainCanvas;
 
     void Start()
@@ -106,7 +106,7 @@ public class DataController : MonoBehaviour
 
     public void LoadLevelsMenu()
     {
-
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void Reset()
