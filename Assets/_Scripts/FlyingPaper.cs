@@ -80,7 +80,7 @@ public class FlyingPaper : MonoBehaviour
         GameObject clearCoin = Instantiate(ClearCoin) as GameObject;
 
         clearCoin.transform.position = coin.transform.position;
-        clearCoin.transform.rotation = coin.transform.rotation;
+        clearCoin.transform.localEulerAngles = new Vector3(90, coin.transform.localEulerAngles.y, coin.transform.localEulerAngles.z);
 
         source.PlayOneShot(coinSound, soundClipVol);
 

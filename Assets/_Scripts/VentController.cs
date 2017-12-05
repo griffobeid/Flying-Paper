@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class VentController : MonoBehaviour {
 
     private bool ventActive = false;
-    GameObject powSlider;
     GameObject dirSlider;
-    GameObject arrowContainer;
+    public GameObject arrowContainer;
+    public GameObject powSlider;
     public GameObject arrow;
     public GameObject arrowForRot;
     public GameObject plane;
@@ -20,13 +20,6 @@ public class VentController : MonoBehaviour {
 
     Vector3 arrowPos;
     private Transform pivot;
-
-    //Set vent to off automatically
-    private void Awake()
-    {
-        powSlider = GameObject.FindGameObjectWithTag("AirPowerSlider");
-        arrowContainer = GameObject.FindGameObjectWithTag("ArrowContainer");
-    }
 
     private void Start()
     {

@@ -109,17 +109,18 @@ public class PaperPlaneV2 : MonoBehaviour
         // destroy the plane anytime it collides with a wall
         if (col.gameObject.tag == "Floor" && !finished)
         {
-            StartCoroutine(WaitThenReset());
+            //StartCoroutine(WaitThenReset());
+            fpScript.DestroyPlaneAndReset();
         }
     }
 
     // need to use and IEnumerator here so that the 
     // game waits before resetting
-    IEnumerator WaitThenReset()
-    {
-        yield return new WaitForSeconds(2);
-        fpScript.DestroyPlaneAndReset();
-    }
+    //IEnumerator WaitThenReset()
+    //{
+        //yield return new WaitForSeconds(2);
+     //   fpScript.DestroyPlaneAndReset();
+    //}
 
     // implementing coin pick up, finish line, and teleporter
     // calls a script in the FlyingPaper class
@@ -135,6 +136,8 @@ public class PaperPlaneV2 : MonoBehaviour
        // }
         else if (other.gameObject.CompareTag("Finish"))
         {
+            rb = this.GetComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             finished = true;
             fpScript.FinishLine();
         } 
