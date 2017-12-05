@@ -114,13 +114,6 @@ public class PaperPlaneV2 : MonoBehaviour
         }
     }
 
-    // need to use and IEnumerator here so that the 
-    // game waits before resetting
-    //IEnumerator WaitThenReset()
-    //{
-        //yield return new WaitForSeconds(2);
-     //   fpScript.DestroyPlaneAndReset();
-    //}
 
     // implementing coin pick up, finish line, and teleporter
     // calls a script in the FlyingPaper class
@@ -137,7 +130,7 @@ public class PaperPlaneV2 : MonoBehaviour
         else if (other.gameObject.CompareTag("Finish"))
         {
             rb = this.GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            //rb.constraints = RigidbodyConstraints.FreezeAll;
             finished = true;
             fpScript.FinishLine();
         } 
