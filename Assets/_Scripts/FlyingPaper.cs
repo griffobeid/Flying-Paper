@@ -18,6 +18,8 @@ public class FlyingPaper : MonoBehaviour
     public GameObject canvas;
     public Slider rotSlider, speedSlider;
     private static float rSliderVal, sSliderVal;
+    public float teleXOffset = 0, teleYOffset = 0;
+
 
     // private vars
     string currentLevel;
@@ -86,18 +88,6 @@ public class FlyingPaper : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         Destroy(coin);
     }
-
-    // teleport to the receiver
-    public void Teleport(Collider col) {
-        GameObject sender = col.gameObject;
-        GameObject receiver = sender.transform.parent.GetChild(1).gameObject;
-        GameObject plane = GameObject.FindGameObjectWithTag("PlaneHolder");
-
-
-        plane.transform.position = receiver.transform.position;
-        plane.transform.position = new Vector3(receiver.transform.position.x + 10, receiver.transform.position.y, receiver.transform.position.z);
-    }
-
     // called once the finish line is triggered
     public void FinishLine()
     {

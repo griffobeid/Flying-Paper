@@ -53,7 +53,7 @@ public class WindController : MonoBehaviour {
         //STOP PLANE
         rb.velocity = Vector3.zero;
 
-
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
 
         //push plane in direction, add force based on wind speed slider and rotation of arrow.
         if (arrowRot.x <= -0.5)

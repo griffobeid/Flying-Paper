@@ -129,10 +129,10 @@ public class PaperPlaneV2 : MonoBehaviour
         {
             fpScript.CoinPickup(other);
         }
-        else if(other.gameObject.CompareTag("Teleporter"))
-        {
-            fpScript.Teleport(other);
-        }
+        //else if(other.gameObject.CompareTag("Teleporter"))
+       // {
+       //     Teleporter.Teleport(other);
+       // }
         else if (other.gameObject.CompareTag("Finish"))
         {
             finished = true;
