@@ -297,11 +297,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1253580667}
+      objectReference: {fileID: 1120252417}
     - target: {fileID: 114393756253446336, guid: d79c94d43dbb1481584d57bc3d551ec5,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: LoadPauseMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d79c94d43dbb1481584d57bc3d551ec5, type: 2}
@@ -866,6 +866,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b242aae119bba4c488b2d1a6dcbfa886, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1120252417 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114602705072181860, guid: b242aae119bba4c488b2d1a6dcbfa886,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120252416}
+  m_Script: {fileID: 11500000, guid: f3574570ac1aa4f608e120b46f2e489a, type: 3}
 --- !u!1 &1127106577
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +886,7 @@ GameObject:
   - component: {fileID: 1127106578}
   m_Layer: 10
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1022,11 +1028,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55a2491fbca63e47b69a6f1f77f2340, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1253580667 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1179829682510800, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1972229136}
 --- !u!114 &1253580668 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
