@@ -20,7 +20,6 @@ public class FlyingPaper : MonoBehaviour
     public AudioClip teleportSound;
     public GameObject canvas;
     public Slider rotSlider, speedSlider;
-    private static float rSliderVal, sSliderVal;
     public float teleXOffset = 0, teleYOffset = 0;
 
 
@@ -56,12 +55,6 @@ public class FlyingPaper : MonoBehaviour
         hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
     }
 
-    //get slider values to update
-    void Update()
-    {
-        rSliderVal = rotSlider.value;
-        sSliderVal = speedSlider.value ;
-    }
 
     // this gets called when the plane hits the floor
     // if lives are greater than 0 then the level soft resets

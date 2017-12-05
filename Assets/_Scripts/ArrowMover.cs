@@ -5,7 +5,6 @@ using UnityEngine;
 public class ArrowMover : MonoBehaviour {
 
     float distance = 32.7f;
-    float posZ = 2.5f;
     GameObject arrow;
 
     void Start()
