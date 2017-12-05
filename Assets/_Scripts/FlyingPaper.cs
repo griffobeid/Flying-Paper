@@ -185,4 +185,9 @@ public class FlyingPaper : MonoBehaviour
     {
         source.PlayOneShot(teleportSound);
     }
+
+    public void PlayThrowSound()
+    {
+        source.PlayOneShot(throwSound);
+    }
 }
