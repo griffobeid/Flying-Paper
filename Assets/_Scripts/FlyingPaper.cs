@@ -22,7 +22,6 @@ public class FlyingPaper : MonoBehaviour
     public Slider rotSlider, speedSlider;
     public float teleXOffset = 0, teleYOffset = 0;
 
-
     // private vars
     string currentLevel;
     int returnToLevel;
@@ -101,19 +100,20 @@ public class FlyingPaper : MonoBehaviour
             flyButton.gameObject.SetActive(true);
             //GameObject holder = Instantiate(planePrefab) as GameObject;
             GameObject holder = GameObject.FindGameObjectWithTag("PlaneHolder");
-            GameObject trail = GameObject.FindGameObjectWithTag("Trail");
+            GameObject trail = holder.transform.GetChild(0).transform.GetChild(0).gameObject;
+            Vector3 trailPos = GameObject.FindGameObjectWithTag("TrailRenderPosition").transform.position;
             Transform plane = holder.transform.GetChild(0);
-
-            trail.SetActive(false);
+            trail.transform.parent = null;
             //Destroy(trail);
             holder.transform.position = holderStartPosition;
             holder.transform.rotation = holderStartRotation;
             plane.position = planeStartPosition;
             plane.rotation = planeStartRotation;
             plane.GetComponent<PaperPlaneV2>().Init();
-            trail.SetActive(true);
-            //GameObject newTrail = Instantiate(trail) as GameObject;
-            //newTrail.transform.parent = plane;
+            //trail.SetActive(true);
+            GameObject newTrail = Instantiate(trail) as GameObject;
+            newTrail.transform.parent = plane;
+            newTrail.transform.position = trailPos;
         }
         else
         {

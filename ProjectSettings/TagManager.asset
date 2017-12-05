@@ -24,6 +24,7 @@ TagManager:
   - MainCanvas
   - Teleporter
   - Trail
+  - TrailRenderPosition
   layers:
   - Default
   - TransparentFX
