@@ -128,7 +128,7 @@ public class DataController : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("0");
+        SceneManager.LoadScene("_Level_0_Final");
     }
 
     void SavePlayerProgress(string level, int score)
