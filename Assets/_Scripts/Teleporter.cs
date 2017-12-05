@@ -8,9 +8,13 @@ public class Teleporter : MonoBehaviour {
     public GameObject receiver;
     public float teleXOffset, teleYOffset;
     public bool pointedRight = true;
+    FlyingPaper fpScript;
 
     public void OnTriggerEnter(Collider col)
     {
+        fpScript = Camera.main.GetComponent<FlyingPaper>();
+        fpScript.PlayTeleportSound();
+
         Vector3 planerot = plane.transform.localEulerAngles;
         bool isPlaneForward;
 

@@ -7029,6 +7029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c924ff38184b0b49a425094272e3d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowContainer: {fileID: 1876564368024498}
+  powSlider: {fileID: 1448954047458198}
   arrow: {fileID: 1693914219271994}
   arrowForRot: {fileID: 1876564368024498}
   plane: {fileID: 0}

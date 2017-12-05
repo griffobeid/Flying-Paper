@@ -2247,17 +2247,6 @@ Prefab:
       objectReference: {fileID: 1621799080}
     - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
-      propertyPath: settingsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
-      propertyPath: ClearCoin
-      value: 
-      objectReference: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd,
-        type: 2}
-    - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
-        type: 2}
       propertyPath: rotSlider
       value: 
       objectReference: {fileID: 1621799078}
@@ -2307,8 +2296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c924ff38184b0b49a425094272e3d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowContainer: {fileID: 0}
-  powSlider: {fileID: 0}
+  arrowContainer: {fileID: 1031248852}
+  powSlider: {fileID: 1281917908}
   arrow: {fileID: 1751451575}
   arrowForRot: {fileID: 1031248852}
   plane: {fileID: 1088068741}

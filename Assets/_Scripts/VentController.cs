@@ -14,6 +14,8 @@ public class VentController : MonoBehaviour {
     public GameObject plane;
     public GameObject arrowBot;
 
+    FlyingPaper fpScript;
+
     public Slider powerSlider;
     public GameObject rotLeft, rotRight;
     float power, direction;
@@ -41,6 +43,8 @@ public class VentController : MonoBehaviour {
         rotLeft.SetActive(ventActive);
         rotRight.SetActive(ventActive);
         arrowBot.GetComponent<Collider>().enabled = true;
+        fpScript = Camera.main.GetComponent<FlyingPaper>();
+        fpScript.playVentSound();
     }
 
     //Change power of air (move arrow)

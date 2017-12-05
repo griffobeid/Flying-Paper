@@ -15,6 +15,8 @@ public class FlyingPaper : MonoBehaviour
     public AudioClip ventSound;
     public AudioClip explosionSound;
     public AudioClip winSound;
+    public AudioClip switchSound;
+    public AudioClip teleportSound;
     public GameObject canvas;
     public Slider rotSlider, speedSlider;
     private static float rSliderVal, sSliderVal;
@@ -174,4 +176,13 @@ public class FlyingPaper : MonoBehaviour
         }
     }
 
+    public void playVentSound()
+    {
+        source.PlayOneShot(switchSound);
+    }
+
+    public void PlayTeleportSound()
+    {
+        source.PlayOneShot(teleportSound);
+    }
 }

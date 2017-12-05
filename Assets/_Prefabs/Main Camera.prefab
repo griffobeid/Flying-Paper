@@ -185,12 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 114718488100885536, guid: d79c94d43dbb1481584d57bc3d551ec5,
-    type: 2}
-  livesText: {fileID: 114819867558309842, guid: d79c94d43dbb1481584d57bc3d551ec5,
-    type: 2}
-  hiscoreText: {fileID: 114393392979434412, guid: d79c94d43dbb1481584d57bc3d551ec5,
-    type: 2}
+  scoreText: {fileID: 0}
+  livesText: {fileID: 0}
+  hiscoreText: {fileID: 0}
   planePrefab: {fileID: 1555338677408460, guid: 7214947bd551e6649bbd6ad9c3d7128a,
     type: 2}
   ClearCoin: {fileID: 1272630522275340, guid: 0780618fab6144f2282be1651bf2e2bd, type: 2}
@@ -201,7 +198,13 @@ MonoBehaviour:
   ventSound: {fileID: 8300000, guid: bd37d8044dab6094091e37a68591ed59, type: 3}
   explosionSound: {fileID: 0}
   winSound: {fileID: 8300000, guid: 632d8c990db665e41b1043717fc0fd3d, type: 3}
-  canvas: {fileID: 1611301539490968, guid: d79c94d43dbb1481584d57bc3d551ec5, type: 2}
+  switchSound: {fileID: 8300000, guid: 27a12a786c3e02747a34e31bfe40d0d1, type: 3}
+  teleportSound: {fileID: 8300000, guid: 641e64572f3e6794abc9c2fbade5ae65, type: 3}
+  canvas: {fileID: 0}
+  rotSlider: {fileID: 0}
+  speedSlider: {fileID: 0}
+  teleXOffset: 5.2
+  teleYOffset: 0
 --- !u!124 &124944718173167046
 Behaviour:
   m_ObjectHideFlags: 1

@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4723556296401454}
   - component: {fileID: 65054411696691350}
-  - component: {fileID: 114747861517694254}
+  - component: {fileID: 114652283421593112}
   m_Layer: 0
   m_Name: Sender
   m_TagString: Teleporter
@@ -255,7 +255,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 0.39999998, z: 20.072071}
   m_Center: {x: -0, y: 0.25000682, z: 7.5359426}
---- !u!114 &114747861517694254
+--- !u!114 &114652283421593112
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
