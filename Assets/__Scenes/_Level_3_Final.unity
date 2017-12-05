@@ -273,6 +273,36 @@ Prefab:
       propertyPath: m_Text
       value: 'Level: 3'
       objectReference: {fileID: 0}
+    - target: {fileID: 114139696022718790, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253580668}
+    - target: {fileID: 114139696022718790, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782858656850212, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253580668}
+    - target: {fileID: 114782858656850212, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 114393756253446336, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253580667}
+    - target: {fileID: 114393756253446336, guid: d79c94d43dbb1481584d57bc3d551ec5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d79c94d43dbb1481584d57bc3d551ec5, type: 2}
   m_IsPrefabParent: 0
@@ -344,6 +374,16 @@ Prefab:
     - target: {fileID: 4921754019912570, guid: 2c0c3bc744e6f564a8f090b15ccf695b, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.43027744
+      objectReference: {fileID: 0}
+    - target: {fileID: 65187863222831690, guid: 2c0c3bc744e6f564a8f090b15ccf695b,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 8.606255
+      objectReference: {fileID: 0}
+    - target: {fileID: 65187863222831690, guid: 2c0c3bc744e6f564a8f090b15ccf695b,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 3.8031294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c0c3bc744e6f564a8f090b15ccf695b, type: 2}
@@ -909,7 +949,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1127106577}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.3, y: 1.94, z: 5}
+  m_LocalPosition: {x: 3.43, y: 1.94, z: 5}
   m_LocalScale: {x: 1, y: 18.245281, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -982,6 +1022,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55a2491fbca63e47b69a6f1f77f2340, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1253580667 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1179829682510800, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1972229136}
+--- !u!114 &1253580668 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1972229136}
+  m_Script: {fileID: 11500000, guid: 81e8e6a56d9fd4edea67c69ad9c1eb2b, type: 3}
 --- !u!1001 &1268306990
 Prefab:
   m_ObjectHideFlags: 0
@@ -1133,7 +1184,7 @@ Prefab:
         type: 2}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2061641866}
     - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
       propertyPath: settingsButton
@@ -1204,3 +1255,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83d700ec1880f45deb254dc508cb8752, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2061641866 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1733892881293500, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 157313272}
