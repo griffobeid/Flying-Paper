@@ -106,6 +106,10 @@ public class FlyingPaper : MonoBehaviour
             //reactivate fly button
             flyButton.gameObject.SetActive(true);
 
+			//reactivate sliders
+			rotSlider.gameObject.SetActive(true);
+			speedSlider.gameObject.SetActive (true);
+
             //disable old trail and enable new one
             GameObject holder = GameObject.FindGameObjectWithTag("PlaneHolder");
             GameObject trail = holder.transform.GetChild(0).transform.GetChild(0).gameObject;

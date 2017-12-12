@@ -335,6 +335,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 157313272}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &157313276 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114872858113187500, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 157313272}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &157313277 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114247240667390744, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 157313272}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &206976525
 Prefab:
   m_ObjectHideFlags: 0
@@ -1222,12 +1234,12 @@ Prefab:
         type: 2}
       propertyPath: rotSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 157313277}
     - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
       propertyPath: speedSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 157313276}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09bc81bfe31ec646b9297ed5454b2e6, type: 2}
   m_IsPrefabParent: 0

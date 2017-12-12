@@ -151,6 +151,9 @@ public class PaperPlaneV2 : MonoBehaviour
         rb.AddTorque(transform.right * initialTorque);
 
         flyButton.gameObject.SetActive(false);
+
+		rotValSlider.gameObject.SetActive (false);
+		powerValSlider.gameObject.SetActive (false);
     }
 
     public void RotatePlaneWithSlider()

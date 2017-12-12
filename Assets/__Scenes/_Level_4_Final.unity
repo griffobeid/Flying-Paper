@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000002, guid: 20a0bbcd01e19554bbf68a90d39a47e3,
     type: 2}
   m_UseShadowmask: 1
@@ -1237,6 +1238,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1733892881293500, guid: d79c94d43dbb1481584d57bc3d551ec5,
     type: 2}
   m_PrefabInternal: {fileID: 1208260354}
+--- !u!114 &1208260359 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114872858113187500, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208260354}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1208260360 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114247240667390744, guid: d79c94d43dbb1481584d57bc3d551ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208260354}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1596127812
 Prefab:
   m_ObjectHideFlags: 0
@@ -1368,12 +1381,12 @@ Prefab:
         type: 2}
       propertyPath: rotSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1208260360}
     - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
       propertyPath: speedSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1208260359}
     - target: {fileID: 114298023730013252, guid: f09bc81bfe31ec646b9297ed5454b2e6,
         type: 2}
       propertyPath: teleXOffset
