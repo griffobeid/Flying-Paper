@@ -121,9 +121,9 @@ public class FlyingPaper : MonoBehaviour
 
             //reinstantiate
             plane.GetComponent<PaperPlaneV2>().Init();
-            GameObject newTrail = Instantiate(trail) as GameObject;
-            newTrail.transform.parent = plane;
-            newTrail.transform.position = trailPos;
+			GameObject newTrail = Instantiate(trail, trailPos, new Quaternion(0,0,0,0), plane) as GameObject; 
+            //newTrail.transform.position = trailPos;
+			//newTrail.transform.parent = plane;
         }
         else
         {
