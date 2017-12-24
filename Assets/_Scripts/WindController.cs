@@ -10,25 +10,22 @@ public class WindController : MonoBehaviour {
     public GameObject plane, arrowTop, arrowBot;
     public Slider airpowerSlider;
     public float ventForce = 2f, fwdDamper = 1, upForce = 5;
-    private float airpower;
-    private Vector3 arrowPos;
-    private Quaternion arrowRot;
+    float airpower;
+    Quaternion arrowRot;
     Rigidbody rb;
-    private bool isPlaneForward;
+    bool isPlaneForward;
 
     //instantiate
-    private void Start()
+    void Start()
     {
-        arrowPos = arrowTop.transform.localPosition;
         arrowRot = arrowTop.transform.rotation;
 
         rb = plane.GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //arrowBot.GetComponent<Collider>().enabled = false;
-        arrowPos = arrowTop.transform.localPosition;
         arrowRot = arrowTop.transform.rotation;
         airpower = airpowerSlider.value * 1.3f;
         //make sure airpower is positive for physics calculations

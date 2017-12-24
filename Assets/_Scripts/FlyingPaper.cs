@@ -52,7 +52,7 @@ public class FlyingPaper : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "GameOver")
         {
             nextButton.gameObject.SetActive(false);
-            returnToLevel = Application.loadedLevel;
+            returnToLevel = SceneManager.GetActiveScene().buildIndex;
         }
         flyButton = GameObject.FindGameObjectWithTag("GameController").GetComponent<Button>();
 
@@ -94,7 +94,6 @@ public class FlyingPaper : MonoBehaviour
         source.PlayOneShot(winSound, soundClipVol);//play win sound
         dataController.SubmitNewPlayerScore(score, currentLevel);
         hiscoreText.text = "Highscore: " + dataController.GetHighestPlayerScore(currentLevel).ToString();
-        // todo: set the final score here
         nextButton.gameObject.SetActive(true);
     }
 
@@ -126,8 +125,6 @@ public class FlyingPaper : MonoBehaviour
             //reinstantiate
             plane.GetComponent<PaperPlaneV2>().Init();
 			GameObject newTrail = Instantiate(trail, trailPos, new Quaternion(0,0,0,0), plane) as GameObject; 
-            //newTrail.transform.position = trailPos;
-			//newTrail.transform.parent = plane;
         }
         else
         {
@@ -158,14 +155,7 @@ public class FlyingPaper : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name=="GameOver")
         {
-            if (returnToLevel != null)
-            {
-                Application.LoadLevel(returnToLevel);
-            }
-            else
-            {
-                SceneManager.LoadScene("1");
-            }
+            SceneManager.LoadScene(returnToLevel);
         }
         else
         {

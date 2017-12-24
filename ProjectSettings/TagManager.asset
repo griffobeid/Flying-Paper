@@ -25,6 +25,7 @@ TagManager:
   - Teleporter
   - Trail
   - TrailRenderPosition
+  - Data
   layers:
   - Default
   - TransparentFX

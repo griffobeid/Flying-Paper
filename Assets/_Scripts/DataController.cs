@@ -6,6 +6,7 @@ public class DataController : MonoBehaviour
 {
     public GameObject pauseMenu;
     GameObject pause, levels, mainCanvas;
+    Text soundButtonText;
 
     void Start()
     {
@@ -29,36 +30,28 @@ public class DataController : MonoBehaviour
     //for muting sound
     public void ToggleSound()
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu")
+        if (GameObject.FindGameObjectWithTag("SoundButton") != null)
         {
-            Transform pauseCanvas = pause.transform.GetChild(1).transform;
-            if (PlayerPrefs.GetInt("Sound") == 0)
+            soundButtonText = GameObject.FindGameObjectWithTag("SoundButton").transform.GetChild(0).GetComponent<Text>();
+        }
+        AudioSource source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
+        // toggle the audio source attached to the Main Camera
+        // change the text on the sound toggle button to on/off
+        if (PlayerPrefs.GetInt("Sound") == 0)
+        {
+            PlayerPrefs.SetInt("Sound", 1);
+            source.mute = false;
+            if (soundButtonText != null)
             {
-                PlayerPrefs.SetInt("Sound", 1);
-                pauseCanvas.GetChild(4).transform.GetChild(0).GetComponent<Text>().text = "Sound: On";
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FlyingPaper>().SoundCheck();
-            }
-            else
-            {
-                PlayerPrefs.SetInt("Sound", 0);
-                pauseCanvas.GetChild(4).transform.GetChild(0).GetComponent<Text>().text = "Sound: Off";
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FlyingPaper>().SoundCheck();
+                soundButtonText.text = "Sound: On";
             }
         }
         else
         {
-            AudioSource source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
-            Text soundButtonText = GameObject.FindGameObjectWithTag("SoundButton").transform.GetChild(0).GetComponent<Text>();
-            if (PlayerPrefs.GetInt("Sound") == 0)
+            PlayerPrefs.SetInt("Sound", 0);
+            source.mute = true;
+            if (soundButtonText != null)
             {
-                PlayerPrefs.SetInt("Sound", 1);
-                source.mute = false;
-                soundButtonText.text = "Sound: On";
-            }
-            else
-            {
-                PlayerPrefs.SetInt("Sound", 0);
-                source.mute = true;
                 soundButtonText.text = "Sound: Off";
             }
         }

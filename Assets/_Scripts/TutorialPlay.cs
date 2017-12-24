@@ -3,22 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialPlay : MonoBehaviour {
+public class TutorialPlay : MonoBehaviour
+{
 
     AudioSource source;
 
-    void Start() {
+    void Start()
+    {
         source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
-        if(PlayerPrefs.GetInt("Sound") == 0) {
+        SoundCheck();
+    }
+
+    void SoundCheck()
+    {
+        if (PlayerPrefs.GetInt("Sound") == 0)
+        {
             source.mute = true;
-        } else {
+        }
+        else
+        {
             source.mute = false;
+
         }
     }
 
     //All of the following methods are used with UI buttons
     //to load certain scenes.
-	public void PlayGame()
+    public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
