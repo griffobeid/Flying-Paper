@@ -26,6 +26,7 @@ TagManager:
   - Trail
   - TrailRenderPosition
   - Data
+  - key
   layers:
   - Default
   - TransparentFX
