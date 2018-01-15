@@ -132,6 +132,10 @@ public class PaperPlaneV2 : MonoBehaviour
             finished = true;
             fpScript.FinishLine();
         } 
+        else if (other.gameObject.CompareTag("key"))
+        {
+            fpScript.GateAndKey(other);
+        }
     }
 
     // this method is called when the fly button is clicked

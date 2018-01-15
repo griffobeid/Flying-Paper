@@ -88,6 +88,15 @@ public class FlyingPaper : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         Destroy(coin);
     }
+    public void GateAndKey(Collider col)
+    {
+        GameObject key = col.gameObject;
+        GameObject gate=GameObject.Find("gate");
+        //GameObject clearKey = Instantiate(ClearKey) as GameObject;
+        //clearkey.transform.position = key.transform.position;
+        Destroy(key);
+        Destroy(gate);
+    }
     // called once the finish line is triggered
     public void FinishLine()
     {
